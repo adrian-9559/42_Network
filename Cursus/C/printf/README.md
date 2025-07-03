@@ -176,8 +176,12 @@ La librería `ft_printf` se ha enriquecido con las siguientes funcionalidades ad
 
 Estas funcionalidades adicionales no solo mejoran la flexibilidad de `ft_printf`, sino que también lo convierten en una herramienta poderosa para formatear y mostrar datos de manera precisa y personalizada. ¡Explora estas características para llevar tus proyectos al siguiente nivel! 🚀
 
-# 📝 **Nota de la corrección**
-(Por corregir aún)
+# 📝 **Nota de la corrección**  
+🎯 **Puntuación obtenida:** **110** / 125  
+
+🔍 **Consejo:** Revisa los puntos donde perdiste puntuación para aprender de ellos y evitar errores similares en el futuro. 🚀  
+
+✨ ¡Sigue adelante y no te rindas! 🌈
 
 # 🛠️ Herramientas recomendadas
 

@@ -109,8 +109,12 @@ El proyecto `get_next_line` incluye una sección de bonus que amplía las funcio
 
 El bonus es una excelente oportunidad para demostrar tu capacidad de implementar soluciones avanzadas y optimizadas. ¡Buena suerte! 🚀
 
-# 📝 **Nota de la corrección**
-(Por corregir aún)
+# 📝 **Nota de la corrección**  
+🎯 **Puntuación obtenida:** **125** / 125  
+
+🔍 **Consejo:** Revisa los puntos donde perdiste puntuación para aprender de ellos y evitar errores similares en el futuro. 🚀  
+
+✨ ¡Sigue adelante y no te rindas! 🌈
 
 # 🛠️ Herramientas recomendadas
 
