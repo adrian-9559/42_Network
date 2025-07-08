@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:10:28 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 22:04:58 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/09 01:19:15 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static t_stack	*parse_numbers(char **numbers)
 	{
 		if (!ft_is_number(numbers[j]))
 		{
-			ft_putstr_error("Error: Invalid number in arguments\n");
+			ft_putstr_error("Error\n");
 			free_numbers(numbers);
 			return (NULL);
 		}
 		stack = add_node_to_stack(stack, ft_atoi(numbers[j]));
 		if (!stack)
 		{
-			ft_putstr_error("Error: Memory allocation failed\n");
+			ft_putstr_error("Error\n");
 			free_numbers(numbers);
 			return (NULL);
 		}
@@ -72,13 +72,13 @@ static t_stack	*create_stack_from_argv(int argc, char **argv)
 	{
 		if (!ft_is_number(argv[i]))
 		{
-			ft_putstr_error("Error: Invalid number in arguments\n");
+			ft_putstr_error("Error\n");
 			return (NULL);
 		}
 		stack = add_node_to_stack(stack, ft_atoi(argv[i]));
 		if (!stack)
 		{
-			ft_putstr_error("Error: Memory allocation failed\n");
+			ft_putstr_error("Error\n");
 			return (NULL);
 		}
 		i++;
@@ -95,7 +95,7 @@ t_stack	*create_stack_from_args(int argc, char **argv)
 		numbers = ft_split(argv[1], ' ');
 		if (!numbers)
 		{
-			ft_putstr_error("Error: Memory allocation failed\n");
+			ft_putstr_error("Error\n");
 			return (NULL);
 		}
 		return (create_stack_from_numbers(numbers));

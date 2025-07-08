@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:40:42 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 22:22:48 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/09 01:41:23 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,13 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
-		return (ft_putstr_error("Error: No arguments provided\n"), -1);
+		return (ft_putstr_error("Error\n"), -1);
 	if (!ft_check_args(argc, argv))
-		return (ft_putstr_error("Error: Invalid argument(s)\n"), -1);
+		return (ft_putstr_error("Error\n"), -1);
 	stack_a = create_stack_from_args(argc, argv);
 	if (!stack_a)
-		return (ft_putstr_error("Error: Failed to create stack\n"), -1);
+		return (ft_putstr_error("Error\n"), -1);
 	push_swap(&stack_a, &stack_b);
-	print_stack(stack_a, "Stack A");
-	print_stack(stack_b, "Stack B");
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

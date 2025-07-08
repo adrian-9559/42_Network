@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:03:05 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 22:29:34 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/09 01:44:12 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	free_stack(t_stack *stack);
 void	free_numbers(char **numbers);
 t_stack	*reverse_stack(t_stack *stack);
 int		find_min(t_stack *stack);
-void	push_value_to_b(t_stack **a, t_stack **b, int value);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);

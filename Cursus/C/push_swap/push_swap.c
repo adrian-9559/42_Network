@@ -6,11 +6,37 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:31:47 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 22:32:31 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/09 01:41:16 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+int	ft_find_min_index(t_stack *stack)
+{
+	int		min;
+	int		index;
+	int		min_index;
+	t_stack	*current;
+
+	if (!stack)
+		return (-1);
+	min = stack->value;
+	min_index = 0;
+	index = 0;
+	current = stack;
+	while (current)
+	{
+		if (current->value < min)
+		{
+			min = current->value;
+			min_index = index;
+		}
+		current = current->next;
+		index++;
+	}
+	return (min_index);
+}
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
@@ -56,18 +82,21 @@ void	sort_three(t_stack **stack)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int	min;
-	int	next_min;
+	int	min_index;
 
-	min = find_min(*a);
-	push_value_to_b(a, b, min);
-	next_min = find_min(*a);
-	push_value_to_b(a, b, next_min);
+	while (ft_stack_size(*a) > 3)
+	{
+		min_index = ft_find_min_index(*a);
+		while (min_index > 0)
+		{
+			ft_ra(a);
+			min_index--;
+		}
+		ft_pb(a, b);
+	}
 	sort_three(a);
-	if ((*b)->value < (*b)->next->value)
-		ft_sb(b);
-	ft_pa(a, b);
-	ft_pa(a, b);
+	while (*b)
+		ft_pa(a, b);
 }
 
 void	sort_big(t_stack **stack_a, t_stack **stack_b)
