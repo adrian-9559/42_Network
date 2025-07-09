@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 20:21:38 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/09 23:46:09 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char			*ft_get_next_line(int fd);
 // Functions lib_project
 int				ft_get_map_file(const char *filename, char ***map);
 void			ft_show_map(char **map, int rows);
+int				ft_small_map(char **map, int rows);
 // Checker functions
 int				ft_checker_name_arg(const char *str);
 int				ft_checker_number_args(int argc);
@@ -65,6 +66,9 @@ int				ft_checker_map_empty_rows(char **map);
 int				ft_checker_map(const char *filename);
 void			ft_free_map(char **map, int rows);
 char			**ft_realloc_map(char **map, int new_size);
+int				ft_checker_figure(char **map, int rows);
+int				ft_checker_wall(char **map, int rows, int cols);
+int				ft_checker_requirements(char **map);
 // Generate map functions
 int				ft_generate(const char *filename);
 int				ft_generate_file(const char *filename);

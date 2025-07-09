@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_small_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 13:39:52 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 21:04:06 by adriescr         ###   ########.fr       */
+/*   Created: 2025/07/09 20:57:52 by adriescr          #+#    #+#             */
+/*   Updated: 2025/07/09 21:04:37 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../so_long.h"
+#include "./../../so_long.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_small_map(char **map, int rows)
 {
-	size_t	len;
+	int	cols;
 
-	len = 0;
-	while (s && s[len])
-		len++;
-	return (len);
+	cols = ft_strlen(map[0]);
+	if ((cols <= 3 && rows <= 5) || (cols <= 5 && rows <= 3))
+		return (-1);
+	return (cols);
 }

@@ -15,6 +15,9 @@ MY_LIB_PROJECT_SOURCES = \
 	lib_project/checkers/file/ft_checker_file.c \
 	lib_project/checkers/map/ft_checker_map_empty.c \
 	lib_project/checkers/map/ft_checker_map.c \
+	lib_project/checkers/map/ft_checker_figure.c \
+	lib_project/checkers/map/ft_checker_wall.c \
+	lib_project/checkers/map/ft_checker_requirements.c \
 	lib_project/generate_map/ft_generate.c \
 	lib_project/generate_map/ft_generate_file.c \
 	lib_project/generate_map/ft_generate_file_utils.c \
@@ -24,7 +27,8 @@ MY_LIB_PROJECT_SOURCES = \
 	lib_project/file_utils/ft_get_map_file.c \
 	lib_project/map_utils/ft_free_map.c \
 	lib_project/map_utils/ft_realloc_map.c \
-	lib_project/map_utils/ft_show_map.c
+	lib_project/map_utils/ft_show_map.c \
+	lib_project/map_utils/ft_small_map.c \
 
 MY_LIB = \
 	lib/ft_is_digit.c \
@@ -52,31 +56,50 @@ MY_LIB_OBJECTS = $(MY_LIB:.c=.o)
 MY_LIB_PROJECT_OBJECTS = $(MY_LIB_PROJECT_SOURCES:.c=.o)
 
 all: $(NAME) $(LIB_NAME) $(LIB_PROJECT_NAME)
-
+	
 $(LIB_PROJECT_NAME): $(MY_LIB_PROJECT_OBJECTS)
-	$(AR) $(LIB_PROJECT_NAME) $(MY_LIB_PROJECT_OBJECTS)
+	@echo "\033[34mCompilando lib_project...\033[0m"
+	@$(AR) $(LIB_PROJECT_NAME) $(MY_LIB_PROJECT_OBJECTS)
 
 $(LIB_NAME): $(MY_LIB_OBJECTS)
-	$(AR) $(LIB_NAME) $(MY_LIB_OBJECTS)
+	@echo "\033[34mCompilando lib...\033[0m"
+	@$(AR) $(LIB_NAME) $(MY_LIB_OBJECTS)
 
 $(NAME): $(MY_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME)
-	$(CC) $(CFLAGS) $(MY_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) -o $(NAME)
-	chmod 755 $(NAME)
+	@echo "\033[34mCompilando so_long...\033[0m"
+	@$(CC) $(CFLAGS) $(MY_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) -o $(NAME)
+	@chmod 755 $(NAME)
+	@if [ $$? -eq 0 ]; then \
+		echo "\033[32mCompilación finalizada correctamente.\033[0m"; \
+	else \
+		echo "\033[31mError durante la compilación.\033[0m"; \
+	fi
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 lib/%.o: lib/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 lib_project/%.o: lib_project/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(MY_LIB_PROJECT_OBJECTS)
+	@rm -f $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(MY_LIB_PROJECT_OBJECTS)
+	@if [ $$? -eq 0 ]; then \
+		echo "\033[32mArchivos objeto eliminados correctamente.\033[0m"; \
+	else \
+		echo "\033[31mError al eliminar los archivos objeto.\033[0m"; \
+	fi
 
-fclean: clean
-	rm -f $(NAME) $(LIB_NAME) $(LIB_PROJECT_NAME)
+fclean:
+	@rm -f $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(MY_LIB_PROJECT_OBJECTS)
+	@rm -f $(NAME) $(LIB_NAME) $(LIB_PROJECT_NAME)
+	@if [ $$? -eq 0 ]; then \
+		echo "\033[32mArchivos objeto eliminados correctamente.\033[0m"; \
+	else \
+		echo "\033[31mError al eliminar los archivos objeto.\033[0m"; \
+	fi
 
 re: fclean all
 .PHONY: all clean fclean re
