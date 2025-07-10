@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 23:46:09 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/10 03:38:08 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
+# endif
+
+# ifndef MAX_MAP_GEN_ATTEMPTS
+#  define MAX_MAP_GEN_ATTEMPTS 10000
 # endif
 
 # ifndef MAP_ROWS
@@ -69,6 +73,7 @@ char			**ft_realloc_map(char **map, int new_size);
 int				ft_checker_figure(char **map, int rows);
 int				ft_checker_wall(char **map, int rows, int cols);
 int				ft_checker_requirements(char **map);
+int				ft_checker_posible_complete(char **map, int rows);
 // Generate map functions
 int				ft_generate(const char *filename);
 int				ft_generate_file(const char *filename);

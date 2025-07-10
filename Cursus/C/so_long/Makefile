@@ -18,6 +18,7 @@ MY_LIB_PROJECT_SOURCES = \
 	lib_project/checkers/map/ft_checker_figure.c \
 	lib_project/checkers/map/ft_checker_wall.c \
 	lib_project/checkers/map/ft_checker_requirements.c \
+	lib_project/checkers/map/ft_checker_map_posible.c \
 	lib_project/generate_map/ft_generate.c \
 	lib_project/generate_map/ft_generate_file.c \
 	lib_project/generate_map/ft_generate_file_utils.c \

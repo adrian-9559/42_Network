@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:18:36 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 23:53:00 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/10 03:43:31 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	char	**map;
 	int		rows;
-	
+
 	if (ft_checker_number_args(argc) < 0)
 		return (-1);
 	if (ft_checker_name_arg(argv[1]) < 0)

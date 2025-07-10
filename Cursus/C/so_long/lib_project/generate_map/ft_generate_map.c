@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:03:06 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 18:41:42 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/10 03:43:00 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,48 @@ int	ft_generate_map(const char *filename)
 	return (0);
 }
 
-int	ft_generate_map_rand(int *rows_cols, char **map, unsigned int seed)
+static int	ft_reset_map_rows(int *rows_cols, char **map)
+{
+	int	i;
+
+	i = 0;
+	while (i < rows_cols[0])
+	{
+		if (map[i])
+			free(map[i]);
+		map[i] = malloc(sizeof(char) * (rows_cols[1] + 1));
+		if (!map[i])
+			return (ft_putstr_error(
+					"Error 7.2: Allocating memory for map row.\n"
+				), -1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_generate_map_rand_internal(int *rows_cols, char **map,
+	unsigned int seed, int attempt)
 {
 	unsigned int	local_seed;
 
+	if (attempt > MAX_MAP_GEN_ATTEMPTS)
+		return (ft_putstr_error(
+				"Error 7.1: Exceeded maximum map generation attempts.\n"
+			), -1);
 	local_seed = seed + ft_better_seed();
 	ft_generate_simple_map(rows_cols, map, local_seed);
 	ft_place_random_entities(rows_cols, map, &local_seed);
+	if (ft_checker_posible_complete(map, rows_cols[0]) < 0)
+	{
+		if (ft_reset_map_rows(rows_cols, map) < 0)
+			return (-1);
+		return (ft_generate_map_rand_internal(rows_cols, map,
+				seed, attempt + 1));
+	}
 	return (ft_checker_map_empty_rows(map));
+}
+
+int	ft_generate_map_rand(int *rows_cols, char **map, unsigned int seed)
+{
+	return (ft_generate_map_rand_internal(rows_cols, map, seed, 0));
 }
