@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:03:06 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 03:43:00 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/10 03:47:32 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_generate_map_rand_internal(int *rows_cols, char **map,
 
 	if (attempt > MAX_MAP_GEN_ATTEMPTS)
 		return (ft_putstr_error(
-				"Error 7.1: Exceeded maximum map generation attempts.\n"
+				"Warning 7.1: Exceeded maximum map generation attempts.\n"
 			), -1);
 	local_seed = seed + ft_better_seed();
 	ft_generate_simple_map(rows_cols, map, local_seed);
