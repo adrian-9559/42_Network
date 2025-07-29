@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 03:38:08 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:33:23 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "./lib/mlx/mlx.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -33,6 +34,26 @@
 # ifndef MAP_COLS
 #  define MAP_COLS 13
 # endif
+
+# ifndef FLOOR_FILE_NAME
+#  define FLOOR_FILE_NAME "./src/floor.xpm"
+# endif
+
+# ifndef WALL_FILE_NAME
+#  define WALL_FILE_NAME "./src/wall.xpm"
+# endif
+
+typedef struct s_game
+{
+	char	**map;
+	int		rows;
+	int		cols;
+	int		player_x;
+	int		player_y;
+	int		exit_x;
+	int		exit_y;
+	int		collectibles;
+}	t_game;
 
 // Functions lib
 int				ft_putstr_error(const char *str);
@@ -62,14 +83,14 @@ char			*ft_get_next_line(int fd);
 int				ft_get_map_file(const char *filename, char ***map);
 void			ft_show_map(char **map, int rows);
 int				ft_small_map(char **map, int rows);
+void			ft_free_map(char **map, int rows);
+char			**ft_realloc_map(char **map, int new_size);
 // Checker functions
 int				ft_checker_name_arg(const char *str);
 int				ft_checker_number_args(int argc);
 int				ft_checker_file_exists(const char *filename);
 int				ft_checker_map_empty_rows(char **map);
 int				ft_checker_map(const char *filename);
-void			ft_free_map(char **map, int rows);
-char			**ft_realloc_map(char **map, int new_size);
 int				ft_checker_figure(char **map, int rows);
 int				ft_checker_wall(char **map, int rows, int cols);
 int				ft_checker_requirements(char **map);
@@ -79,12 +100,14 @@ int				ft_generate(const char *filename);
 int				ft_generate_file(const char *filename);
 int				ft_save_map_to_file(const char *filename, char **map, int rows);
 int				ft_generate_map(const char *filename);
-int				ft_generate_map_rand(int *rows_cols, char **map,
-					unsigned int seed);
+int				ft_generate_map_rand_internal(int *rows_cols, char **map,
+					unsigned int seed, int attempt);
 void			ft_generate_simple_map(int *rows_cols, char **map,
 					unsigned int seed);
 unsigned int	ft_better_seed(void);
 void			ft_place_random_entities(int *rows_cols, char **map,
 					unsigned int *seed);
+// Game functions
+int				ft_start_game(const char *filename);
 
 #endif

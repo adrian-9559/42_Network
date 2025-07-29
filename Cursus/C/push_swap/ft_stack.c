@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:10:28 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 01:53:22 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:13:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ static t_stack	*parse_numbers(char **numbers)
 	{
 		if (!ft_is_number(numbers[j]))
 		{
-			// If the number is not valid, free the allocated memory and return NULL
-			ft_putstr_error("Error\n");
+			ft_putstr_error("Error\n Error 5: Invalid number found.\n");
 			free_numbers(numbers);
 			return (NULL);
 		}
 		stack = add_node_to_stack(stack, ft_atoi(numbers[j]));
 		if (!stack)
 		{
-			// If memory allocation fails, free the numbers and return NULL
-			ft_putstr_error("Error\n");
+			ft_putstr_error("Error\n Error 6: Memory allocation failed.\n");
 			free_numbers(numbers);
 			return (NULL);
 		}
@@ -74,15 +72,13 @@ static t_stack	*create_stack_from_argv(int argc, char **argv)
 	{
 		if (!ft_is_number(argv[i]))
 		{
-			// If the argument is not a valid number, return NULL
-			ft_putstr_error("Error\n");
+			ft_putstr_error("Error\n Error 7: Invalid number found.\n");
 			return (NULL);
 		}
 		stack = add_node_to_stack(stack, ft_atoi(argv[i]));
 		if (!stack)
 		{
-			// If memory allocation fails, return NULL
-			ft_putstr_error("Error\n");
+			ft_putstr_error("Error\n Error 8: Memory allocation failed.\n");
 			return (NULL);
 		}
 		i++;
@@ -99,8 +95,7 @@ t_stack	*create_stack_from_args(int argc, char **argv)
 		numbers = ft_split(argv[1], ' ');
 		if (!numbers)
 		{
-			// If splitting the string fails, return NULL
-			ft_putstr_error("Error\n");
+			ft_putstr_error("Error\n Error 4: Splitting the string failed.\n");
 			return (NULL);
 		}
 		return (create_stack_from_numbers(numbers));
