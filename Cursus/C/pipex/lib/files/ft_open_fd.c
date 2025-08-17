@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_utils.c                                   :+:      :+:    :+:   */
+/*   ft_open_fd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 18:18:46 by adriescr          #+#    #+#             */
-/*   Updated: 2025/05/21 17:51:54 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/17 13:51:45 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/17 14:48:27 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../lib.h"
 
-char	*ft_extract_path(char **envp)
-{
-	int		i;
-	char	*path;
-
-	i = 0;
-	while (envp[i])
-	{
-		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-		{
-			path = envp[i] + 5;
-			return (path);
-		}
-		i++;
-	}
-	return (NULL);
-}
-
+/*
+ * ENGLISH: Opens a file with the specified name and mode.
+ *
+ * SPANISH: Abre un archivo con el nombre y modo especificados.
+ *
+ * @param filename   
+ * 					The name of the file to open. / 
+ * 					El nombre del archivo a abrir.
+ * @param in_or_out  
+ * 					Specifies whether the file is for input (0) or output (1). / 
+ * 					Especifica si el archivo es para entrada (0) o salida (1).
+ *
+ * @return {int}
+ * 
+ * - Returns the file descriptor if successful, or -1 on error.
+ * 
+ * - Devuelve el descriptor de archivo si tiene éxito, o -1 en caso de error.
+ */
 int	ft_open_fd(const char *filename, int in_or_out)
 {
 	int	flags;
@@ -48,36 +48,4 @@ int	ft_open_fd(const char *filename, int in_or_out)
 		return (-1);
 	}
 	return (fd);
-}
-
-void	skip_whitespace(const char *cmd, int *i)
-{
-	while (ft_isspace(cmd[*i]))
-		(*i)++;
-}
-
-void	skip_argument(const char *cmd, int *i)
-{
-	int		in_quote;
-	char	quote;
-
-	in_quote = 0;
-	quote = 0;
-	while (cmd[*i])
-	{
-		if (!in_quote && (cmd[*i] == '\'' || cmd[*i] == '"'))
-		{
-			in_quote = 1;
-			quote = cmd[(*i)++];
-		}
-		else if (in_quote && cmd[*i] == quote)
-		{
-			in_quote = 0;
-			(*i)++;
-		}
-		else if (!in_quote && ft_isspace(cmd[*i]))
-			break ;
-		else
-			(*i)++;
-	}
 }
