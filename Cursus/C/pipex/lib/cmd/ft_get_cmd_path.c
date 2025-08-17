@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 20:46:10 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/17 16:52:13 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:53:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@
  * 			entorno PATH.
  *
  * @param {char *} cmd
- *      - The command to find the path for.
- *      - El comando para el cual se busca la ruta.
+ *      - The command to find the path for. \
+ *      El comando para el cual se busca la ruta.
  * @param {char **} envp
- *      - The environment variables array containing the PATH variable.
- *      - El arreglo de variables de entorno que contiene la variable PATH.
+ *      - The environment variables array containing the PATH variable. \
+ *      El arreglo de variables de entorno que contiene la variable PATH.
  *
  * @returns {char *}
+ * 
  *      - Returns the full path of the command if found, NULL otherwise.
+ * 
  *      - Retorna la ruta completa del comando si se encuentra, NULL en
  *      caso contrario.
  */
