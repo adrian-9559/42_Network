@@ -17,6 +17,8 @@ Estos proyectos no solo fortalecen las bases de la programación en C, sino que 
 - [🖨️ Printf](./printf/README.md)
 - [📜 Get Next Line](./get_next_line/README.md)
 - [🔗 Pipex](./pipex/README.md)
+- [🔄 Push Swap](./push_swap/README.md)
+- [🎮 So_long](./so_long/README.md)
 
 ## 🛠️ Herramientas opcionales a instalar
 
