@@ -1,3 +1,4 @@
 pipex
 *.o
 *.a
+*tester*

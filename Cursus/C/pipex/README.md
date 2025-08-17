@@ -80,3 +80,18 @@ El programa `pipex` implementa las siguientes funcionalidades principales:
 | 🚦 Manejo de errores               | Detecta y reporta errores en apertura de archivos, ejecución y procesos.      |
 | 🧹 Liberación de recursos           | Libera toda la memoria y recursos utilizados para evitar fugas.               |
 
+# 📝 **Nota de la corrección**  
+🎯 **Puntuación obtenida:** ND / 125  
+
+🔍 **Consejo:** Revisa los puntos donde perdiste puntuación para aprender de ellos y evitar errores similares en el futuro. 🚀  
+
+✨ ¡Sigue adelante y no te rindas! 🌈
+
+# 🛠️ Herramientas recomendadas
+
+En esta sección encontrarás una lista de herramientas que te serán útiles durante el desarrollo de este proyecto. Estas herramientas están diseñadas para facilitar la depuración, la escritura de código y la gestión de tu proyecto.
+
+## 🧰 Lista de herramientas recomendadas
+
+- **🛡️ Valgrind**: Para detectar fugas de memoria y errores relacionados con la gestión de memoria.
+- **📏 Norminette**: Una herramienta para verificar que tu código cumple con la Norma de 42.
