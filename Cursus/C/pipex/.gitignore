@@ -2,3 +2,4 @@ pipex
 *.o
 *.a
 *tester*
+*.txt

@@ -5,4 +5,5 @@ Cursus/C/Libft/libftTester
 .vscode
 a.out
 *.o
+*.m
 libftprintf.a
