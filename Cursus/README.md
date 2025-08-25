@@ -78,7 +78,7 @@ El progreso en el Cursus se mide mediante niveles y anillos. 💡 Cada anillo re
 
 | Proyecto           | Descripción                                                                                     | Nota |
 |--------------------|-------------------------------------------------------------------------------------------------|------|
-| [Pipex](./C/pipex/README.md) 🔗 | Crea una herramienta que simula el funcionamiento de tuberías en Unix, permitiendo la comunicación entre procesos y el encadenamiento de comandos. 🛠️🔄 | ND  |
+| [Pipex](./C/pipex/README.md) 🔗 | Crea una herramienta que simula el funcionamiento de tuberías en Unix, permitiendo la comunicación entre procesos y el encadenamiento de comandos. 🛠️🔄 | 100  |
 | [Push_swap](./C/push_swap/README.md) 🔄 | Desarrolla un programa que ordena una pila de números utilizando un conjunto limitado de operaciones, optimizando la eficiencia y el número de movimientos. 📊🛠️ | ND  |
 | [So_long](./C/so_long/README.md) 🎮 | Desarrolla un pequeño juego en 2D utilizando gráficos simples, gestionando mapas, movimientos y eventos para mejorar tus habilidades en programación y lógica. 🕹️🗺️ | ND  |
 

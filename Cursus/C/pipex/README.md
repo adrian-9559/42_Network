@@ -81,7 +81,7 @@ El programa `pipex` implementa las siguientes funcionalidades principales:
 | 🧹 Liberación de recursos           | Libera toda la memoria y recursos utilizados para evitar fugas.               |
 
 # 📝 **Nota de la corrección**  
-🎯 **Puntuación obtenida:** ND / 125  
+🎯 **Puntuación obtenida:** **100** / 125  
 
 🔍 **Consejo:** Revisa los puntos donde perdiste puntuación para aprender de ellos y evitar errores similares en el futuro. 🚀  
 
