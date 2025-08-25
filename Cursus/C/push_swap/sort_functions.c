@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:08:24 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 18:11:38 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:57:28 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 
 int	ft_sort_big(t_stack **stack_a, t_stack **stack_b)
 {
-	int	vars[5];
+	int	vars[6];
 
 	vars[0] = ft_stack_size(*stack_a);
 	vars[1] = 0;

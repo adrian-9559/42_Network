@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:40:42 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 18:16:06 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:56:07 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (
 			ft_putstr_error("Error\n Error 3: Allocation failed.\n"), -1);
-	if (ft_push_swap(&stack_a, &stack_b))
+	if (ft_push_swap(&stack_a, &stack_b) != 0)
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
