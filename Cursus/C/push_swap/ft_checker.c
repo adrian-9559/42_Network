@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:47:18 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 19:59:20 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:42:27 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,26 @@ static int	ft_check_arg_tokens(char *arg)
 		*token = tmp;
 		if (*token)
 			token++;
+	}
+	return (1);
+}
+
+int	ft_check_duplicates(t_stack *stack)
+{
+	t_stack	*current;
+	t_stack	*runner;
+
+	current = stack;
+	while (current)
+	{
+		runner = current->next;
+		while (runner)
+		{
+			if (current->value == runner->value)
+				return (0);
+			runner = runner->next;
+		}
+		current = current->next;
 	}
 	return (1);
 }

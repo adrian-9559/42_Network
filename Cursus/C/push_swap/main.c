@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:40:42 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/28 17:12:44 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:41:30 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (
 			ft_putstr_error("Error\n Error 3: Allocation failed.\n"), -1);
+	if (ft_check_duplicates(stack_a))
+	{
+		free_stack(stack_a);
+		return (ft_putstr_error("Error\n Error 4: Duplicates found.\n"), -1);
+	}
 	if (ft_push_swap(&stack_a, &stack_b) != 0)
 	{
 		free_stack(stack_a);

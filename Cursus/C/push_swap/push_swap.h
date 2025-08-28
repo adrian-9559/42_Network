@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:03:05 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/28 17:30:36 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:41:13 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Main functions
 int		ft_check_args(int argc, char **argv);
+int		ft_check_duplicates(t_stack *stack);
 t_stack	*create_stack_from_args(int argc, char **argv);
 int		ft_stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
