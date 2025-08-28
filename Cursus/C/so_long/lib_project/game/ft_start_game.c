@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 11:57:08 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 15:46:19 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/25 14:29:26 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_start_game(const char *filename)
 	game->rows = ft_get_map_file(filename, game->map);
 	if (game->rows < 0)
 		return (free(game), ft_putstr_error("Error 14: Failed to load map file.\n"), -1);
-		/*
+	/*
 	if (ft_init_game(game) < 0)
 	{
 		ft_putstr_error("Error 15: Failed to initialize game.\n");
