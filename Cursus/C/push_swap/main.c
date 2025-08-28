@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:40:42 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/25 12:56:07 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:12:44 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-void	print_stack(t_stack *stack, const char *name)
-{
-	t_stack	*current;
-
-	printf("%s: ", name);
-	current = stack;
-	while (current)
-	{
-		printf("%d ", current->value);
-		current = current->next;
-	}
-	printf("\n");
-}
 
 int	main(int argc, char **argv)
 {

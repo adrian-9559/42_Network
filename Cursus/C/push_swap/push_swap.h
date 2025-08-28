@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:03:05 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 18:10:03 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:30:36 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	free_stack(t_stack *stack);
 void	free_numbers(char **numbers);
 t_stack	*reverse_stack(t_stack *stack);
 int		find_min(t_stack *stack);
+int		find_min_index(t_stack *stack);
 int		ft_push_swap(t_stack **stack_a, t_stack **stack_b);
 void	ft_assign_indexes(t_stack *stack);
 int		get_chunk_size(int stack_size);

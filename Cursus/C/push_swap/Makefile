@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
+#    By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 15:57:53 by adriescr          #+#    #+#              #
-#    Updated: 2025/07/29 18:10:28 by adriescr         ###   ########.fr        #
+#    Updated: 2025/08/28 17:10:42 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(LIB_OPERATIONS_NAME): $(MY_LIB_OPERATIONS_OBJECTS)
 
 $(NAME): $(MY_OBJECTS) $(LIB_NAME) $(LIB_OPERATIONS_NAME)
 	@echo "\033[34mCompilando $(NAME)...\033[0m"
-	@$(CC) $(CFLAGS) $(MY_OBJECTS) $(LIB_NAME) $(LIB_OPERATIONS_NAME) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(LIB_NAME) $(LIB_OPERATIONS_NAME) -o $(NAME)
 	@chmod 755 $(NAME)
 	@if [ $$? -eq 0 ]; then \
 		echo "\033[32mCompilación finalizada correctamente.\033[0m"; \

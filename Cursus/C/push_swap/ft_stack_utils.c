@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 21:59:28 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 22:05:13 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:30:19 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,30 @@ t_stack	*reverse_stack(t_stack *stack)
 		current = next;
 	}
 	return (prev);
+}
+
+int	find_min_index(t_stack *stack)
+{
+	int		min;
+	int		index;
+	int		min_index;
+	t_stack	*current;
+
+	if (!stack)
+		return (-1);
+	min = stack->value;
+	min_index = 0;
+	index = 0;
+	current = stack;
+	while (current)
+	{
+		if (current->value < min)
+		{
+			min = current->value;
+			min_index = index;
+		}
+		current = current->next;
+		index++;
+	}
+	return (min_index);
 }
