@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+         #
+#    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 15:57:53 by adriescr          #+#    #+#              #
-#    Updated: 2025/08/28 17:10:42 by adriescr         ###   ########.fr        #
+#    Updated: 2025/08/28 17:59:42 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ CFLAGS = -Wall -Wextra -Werror -w
 MY_SOURCES = \
 	main.c \
 	ft_checker.c \
+	ft_checker_stack.c \
 	ft_stack.c \
 	ft_stack_utils.c \
 	push_swap.c \

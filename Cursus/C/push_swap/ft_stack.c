@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:10:28 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 17:13:03 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:26:10 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static t_stack	*add_node_to_stack(t_stack *stack, int value)
 static t_stack	*parse_numbers(char **numbers)
 {
 	t_stack	*stack;
+	long	value;
 	int		j;
 
 	j = 0;
@@ -34,21 +35,18 @@ static t_stack	*parse_numbers(char **numbers)
 	while (numbers[j])
 	{
 		if (!ft_is_number(numbers[j]))
-		{
-			ft_putstr_error("Error\n Error 5: Invalid number found.\n");
-			free_numbers(numbers);
-			return (NULL);
-		}
-		stack = add_node_to_stack(stack, ft_atoi(numbers[j]));
+			return (ft_putstr_error(
+					"Error\n Error 5: Invalid number found.\n"), NULL);
+		value = ft_atoi(numbers[j]);
+		if (value < -2147483648 || value > 2147483647)
+			return (ft_putstr_error(
+					"Error\n Error 6: Number out of int range.\n"), NULL);
+		stack = add_node_to_stack(stack, value);
 		if (!stack)
-		{
-			ft_putstr_error("Error\n Error 6: Memory allocation failed.\n");
-			free_numbers(numbers);
-			return (NULL);
-		}
+			return (ft_putstr_error(
+					"Error\n Error 7: Memory allocation failed.\n"), NULL);
 		j++;
 	}
-	free_numbers(numbers);
 	return (stack);
 }
 
@@ -58,6 +56,9 @@ static t_stack	*create_stack_from_numbers(char **numbers)
 
 	stack = NULL;
 	stack = parse_numbers(numbers);
+	free_numbers(numbers);
+	if (!stack)
+		return (NULL);
 	return (reverse_stack(stack));
 }
 

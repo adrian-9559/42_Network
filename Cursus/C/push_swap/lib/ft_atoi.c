@@ -6,15 +6,15 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:09:15 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/08 20:09:32 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:26:42 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int		result;
+	long	result;
 	int		sign;
 	int		i;
 

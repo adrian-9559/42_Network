@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:03:05 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/28 17:41:13 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:22:06 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_putchar(char c);
 int		ft_putchar_error(char c);
 int		ft_is_digit(unsigned char c);
 int		ft_is_number(const char *str);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
@@ -51,6 +51,8 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 // Main functions
 int		ft_check_args(int argc, char **argv);
 int		ft_check_duplicates(t_stack *stack);
+int		ft_max_int(t_stack *stack);
+int		ft_check(t_stack *stack);
 t_stack	*create_stack_from_args(int argc, char **argv);
 int		ft_stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
