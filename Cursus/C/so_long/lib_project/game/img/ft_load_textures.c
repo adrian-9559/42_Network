@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker_name_arg.c                              :+:      :+:    :+:   */
+/*   ft_load_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 13:31:56 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:55:26 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/29 14:14:16 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/29 21:58:52 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
-int	ft_checker_name_arg(const char *str)
+int	ft_load_textures(t_game *game)
 {
-	size_t	len;
+	int	i;
+	int	j;
 
-	if (!str)
+	i = 0;
+	while (i < game->rows)
 	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file name.\n");
-		return (-1);
-	}
-	len = ft_strlen(str);
-	if (len < 4 || str[len - 4] != '.' || str[len - 3] != 'b'
-		|| str[len - 2] != 'e' || str[len - 1] != 'r')
-	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file extension.\n");
-		return (-1);
+		j = 0;
+		while (j < game->cols)
+		{
+			if (ft_mlx_print_image(game, i, j) < 0)
+				return (-1);
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }

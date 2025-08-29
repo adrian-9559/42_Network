@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:52:13 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 20:18:00 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:44:23 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_get_map_file(const char *filename, char ***map)
 
 	fd = ft_open_file_read(filename);
 	if (fd < 0)
-		return (ft_putstr_error("Error 9.1: Could not open the file\n"), -1);
+		return (-1);
 	rows = 0;
 	*map = NULL;
 	line = ft_get_next_line(fd);

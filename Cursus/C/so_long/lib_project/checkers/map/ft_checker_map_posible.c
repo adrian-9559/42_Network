@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 03:18:37 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 03:26:32 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:54:59 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,12 @@ int	ft_checker_posible_complete(char **map, int rows)
 
 	aux = ft_strdup_matrix(map, rows);
 	if (!aux)
-		return (-1);
+		return (ft_putstr_error("Error\n Function: ft_checker_map_posible\n"
+				" Memory allocation failed.\n"), -1);
 	if (ft_find_player(aux, rows, &x, &y) < 0)
 	{
-		ft_putstr_error("Error 12.1: Player not found in the map.\n");
+		ft_putstr_error("Error\n Function: ft_checker_map_posible\n"
+			" Player not found in the map.\n");
 		ft_free_map(aux, rows);
 		return (-1);
 	}

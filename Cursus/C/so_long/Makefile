@@ -6,7 +6,7 @@
 #    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 11:13:09 by adriescr          #+#    #+#              #
-#    Updated: 2025/07/29 11:58:30 by adriescr         ###   ########.fr        #
+#    Updated: 2025/08/29 16:20:30 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIB_PROJECT_CHECKERS_DIR = $(LIB_PROJECT_DIR)/checkers
 LIB_PROJECT_GENERATE_MAP_DIR = $(LIB_PROJECT_DIR)/generate_map
 LIB_PROJECT_FILE_UTILS_DIR = $(LIB_PROJECT_DIR)/file_utils
 LIB_PROJECT_MAP_UTILS_DIR = $(LIB_PROJECT_DIR)/map_utils
+LIB_GAME_DIR = $(LIB_PROJECT_DIR)/game
 LIB_MLX_DIR = $(LIB_DIR)/mlx
 
 # Libraries
@@ -65,7 +66,15 @@ PROJECT_MAP_UTILS_RESOURCE = \
 	$(LIB_PROJECT_MAP_UTILS_DIR)/ft_small_map.c
 
 MY_LIB_PROJECT_SOURCES = \
-	lib_project/game/ft_start_game.c \
+	$(LIB_GAME_DIR)/ft_game.c \
+	$(LIB_GAME_DIR)/ft_start_game.c \
+	$(LIB_GAME_DIR)/ft_close_game.c \
+	$(LIB_GAME_DIR)/img/ft_load_textures.c \
+	$(LIB_GAME_DIR)/mlx/img/ft_init_mlx_textures.c \
+	$(LIB_GAME_DIR)/mlx/img/ft_print_mlx_image.c \
+	$(LIB_GAME_DIR)/collectibles/ft_collect_prize.c \
+	$(LIB_GAME_DIR)/player/ft_move_player.c \
+	$(LIB_GAME_DIR)/player/ft_set_player_position.c
 
 MY_LIB = \
 	$(LIB_DIR)/ft_is_digit.c \

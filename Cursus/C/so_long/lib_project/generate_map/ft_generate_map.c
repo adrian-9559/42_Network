@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:03:06 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 11:43:58 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:56:26 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,18 @@ int	ft_generate_map(const char *filename)
 	seed = 42;
 	map = malloc(sizeof(char *) * rows_cols[0]);
 	if (!map)
-		return (ft_putstr_error("Error 5: Allocating memory for map rows.\n"),
+		return (ft_putstr_error("Error\n Function: ft_generate_map\n"
+				" Allocating memory for map.\n"),
 			-1);
 	if (ft_allocate_map_rows(map, rows_cols[0], rows_cols[1]) < 0)
-		return (ft_putstr_error("Error 6: Allocating memory for map rows.\n"),
+		return (ft_putstr_error("Error\n Function: ft_generate_map\n"
+				" Allocating memory for map rows.\n"),
 			free(map), -1);
 	if (ft_generate_map_rand_internal(rows_cols, map, seed, 0) < 0)
 		return (-1);
 	if (ft_save_map_to_file(filename, map, rows_cols[0]) < 0)
-		return (ft_putstr_error("Error 8: Error saving map to file.\n"), -1);
+		return (ft_putstr_error("Error\n Function: ft_generate_map\n"
+				" Error saving map to file.\n"), -1);
 	return (0);
 }
 
@@ -69,7 +72,8 @@ static int	ft_reset_map_rows(int *rows_cols, char **map)
 		map[i] = malloc(sizeof(char) * (rows_cols[1] + 1));
 		if (!map[i])
 			return (ft_putstr_error(
-					"Error 7.2: Allocating memory for map row.\n"
+					"Error\n Function: ft_reset_map_rows\n"
+					" Allocating memory for map row.\n"
 				), -1);
 		i++;
 	}

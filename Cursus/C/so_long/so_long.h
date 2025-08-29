@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/29 15:33:23 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 22:07:22 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,41 @@
 # include <fcntl.h>
 # include "./lib/mlx/mlx.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
+# define TILE_SIZE 100
+# define BUFFER_SIZE 1024
 
-# ifndef MAX_MAP_GEN_ATTEMPTS
-#  define MAX_MAP_GEN_ATTEMPTS 10000
-# endif
+// Map generation
+# define MAX_MAP_GEN_ATTEMPTS 10000
+# define MAP_ROWS 5
+# define MAP_COLS 13
 
-# ifndef MAP_ROWS
-#  define MAP_ROWS 5
-# endif
+// Texture files
+# define FLOOR_FILE_NAME "src/textures/floor.xpm"
+# define WALL_FILE_NAME "src/textures/wall.xpm"
+# define EXIT_FILE_NAME "src/textures/exit.xpm"
+# define COLLECTIBLES_FILE_NAME "src/textures/collectible.xpm"
+# define PLAYER_FILE_NAME "src/textures/player.xpm"
 
-# ifndef MAP_COLS
-#  define MAP_COLS 13
-# endif
+// Utils map
+# define HEIGHT_IMAGE 100
+# define WIDTH_IMAGE 100
 
-# ifndef FLOOR_FILE_NAME
-#  define FLOOR_FILE_NAME "./src/floor.xpm"
-# endif
-
-# ifndef WALL_FILE_NAME
-#  define WALL_FILE_NAME "./src/wall.xpm"
-# endif
+// Keys
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_ESC 53
 
 typedef struct s_game
 {
 	char	**map;
+	void	*mlx;
+	void	*wall_img;
+	void	*player_img;
+	void	*exit_img;
+	void	*collectibles_img;
+	void	*win;
 	int		rows;
 	int		cols;
 	int		player_x;
@@ -108,6 +116,21 @@ unsigned int	ft_better_seed(void);
 void			ft_place_random_entities(int *rows_cols, char **map,
 					unsigned int *seed);
 // Game functions
-int				ft_start_game(const char *filename);
+int				ft_game(const char *filename);
+int				ft_start_game(const char *filename, t_game *game);
+int				ft_init_game(t_game *game);
+int				ft_close_game(t_game *game);
+int				ft_key_press(int keycode, t_game *game);
+// Image
+int				ft_load_textures(t_game *game);
+// Player
+int				ft_set_player_position(t_game *game, int x, int y);
+// Collectives
+int				ft_collect_prize(t_game *game, int new_x, int new_y);
+int				ft_move_player(t_game *game, int new_x, int new_y);
+// MLX
+// Image
+int				ft_mlx_print_image(t_game *game, int x, int y);
+int				ft_init_mlx_texture(t_game *game);
 
 #endif

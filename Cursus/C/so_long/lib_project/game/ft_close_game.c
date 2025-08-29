@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_generate_file.c                                 :+:      :+:    :+:   */
+/*   ft_close_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 14:04:22 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:55:48 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/29 14:18:33 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/29 16:24:09 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
-int	ft_generate_file(const char *filename)
+int	ft_close_game(t_game *game)
 {
-	int	file;
-
-	file = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (!file)
-		return (ft_putstr_error("Error\n Function: ft_generate\n"
-				" Could not create file.\n"), -1);
-	ft_putstr("\033[0;32mMap file generated successfully.\033[0m\n");
-	return (file);
+	mlx_destroy_window(game->mlx, game->win);
+	ft_free_map(game->map, game->rows);
+	free(game);
+	return (0);
 }

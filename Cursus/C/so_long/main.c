@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:18:36 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 11:57:15 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 16:23:43 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	if (ft_checker_map(argv[1]) < 0)
 		return (-1);
-	if (ft_start_game(argv[1]) < 0)
+	if (ft_game(argv[1]) < 0)
 		return (-1);
 	return (0);
 }

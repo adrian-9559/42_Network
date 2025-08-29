@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker_name_arg.c                              :+:      :+:    :+:   */
+/*   ft_collect_prize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 13:31:56 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:55:26 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/29 14:36:48 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/29 21:58:41 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
-int	ft_checker_name_arg(const char *str)
+int	ft_collect_prize(t_game *game, int new_x, int new_y)
 {
-	size_t	len;
-
-	if (!str)
-	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file name.\n");
-		return (-1);
-	}
-	len = ft_strlen(str);
-	if (len < 4 || str[len - 4] != '.' || str[len - 3] != 'b'
-		|| str[len - 2] != 'e' || str[len - 1] != 'r')
-	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file extension.\n");
-		return (-1);
-	}
+	game->map[new_x][new_y] = '0';
+	game->collectibles--;
 	return (0);
 }

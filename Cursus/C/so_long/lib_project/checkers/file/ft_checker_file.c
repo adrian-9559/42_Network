@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:54:27 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 20:25:53 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:53:15 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	ft_checker_file_exists(const char *filename)
 	}
 	else
 	{
-		ft_putstr_error("Error 3: File does not exist.\n");
+		ft_putstr_error("Error\n Function: ft_checker_file_exists\n	"
+			"	File does not exist.\n");
 		return (-1);
 	}
 }

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker_name_arg.c                              :+:      :+:    :+:   */
+/*   ft_set_player_position.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 13:31:56 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:55:26 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/29 14:31:30 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/29 21:59:32 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
-int	ft_checker_name_arg(const char *str)
+int	ft_set_player_position(t_game *game, int x, int y)
 {
-	size_t	len;
-
-	if (!str)
-	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file name.\n");
-		return (-1);
-	}
-	len = ft_strlen(str);
-	if (len < 4 || str[len - 4] != '.' || str[len - 3] != 'b'
-		|| str[len - 2] != 'e' || str[len - 1] != 'r')
-	{
-		ft_putstr_error("Error\n Function: ft_checker_name_arg\n"
-			"	Invalid file extension.\n");
-		return (-1);
-	}
+	game->player_x = x;
+	game->player_y = y;
+	if (!game->player_x || !game->player_y)
+		return (ft_putstr_error("Error\n Function: ft_set_player_position\n"
+				"	Player position not set in map.\n"), -1);
 	return (0);
 }

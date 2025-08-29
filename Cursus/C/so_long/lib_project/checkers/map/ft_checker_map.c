@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:39:40 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/10 11:46:54 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:54:24 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,17 @@ int	ft_checker_map(const char *filename)
 
 	rows = ft_get_map_file(filename, &map);
 	if (rows < 0 || map == NULL)
-		return (ft_putstr_error("Error 9: Could not read the map file.\n"), -1);
+		return (ft_putstr_error("Error\n Function: ft_checker_map\n"
+				" Could not read the map file.\n"), -1);
 	if (ft_checker_figure(map, rows) < 0)
-		return (ft_putstr_error("Error 10: Map has a failure.\n"),
-			ft_free_map(map, rows), -1);
+		return (ft_free_map(map, rows), -1);
 	if (ft_checker_requirements(map) < 0)
 		return (ft_putstr_error(
-				"Error 11: Map does not meet the requirements.\n"
+				"Error\n Function: ft_checker_map\n"
+				" Map does not meet the requirements.\n"
 			), ft_free_map(map, rows), -1);
 	if (ft_checker_posible_complete(map, rows) < 0)
-		return (ft_putstr_error(
-				"Error 12: Map is not completable.\n"
-			), ft_free_map(map, rows), -1);
+		return (ft_free_map(map, rows), -1);
 	ft_free_map(map, rows);
 	return (0);
 }
