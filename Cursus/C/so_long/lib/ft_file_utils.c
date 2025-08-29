@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:28:46 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:41:00 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/29 23:09:45 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_open_file_read(const char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (ft_putstr_error("Error\n Function: ft_open_file_read\n Failed to open file for reading.\n"), -1);
+		return (-1);
 	return (fd);
 }
 
