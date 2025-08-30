@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 16:18:24 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 15:13:11 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 15:23:07 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int ft_is_valid_move(t_game *game, int x, int y)
 {
 	if (x < 0 || x >= game->rows || y < 0 || y >= game->cols)
 		return (0);
-	if (game->map[x][y] == 1)
+	printf("Checking move validity for: %d %d; map: %c\n", x, y, game->map[y][x]);
+	if (game->map[x][y] == '1')
 	{
 		ft_putstr("Move blocked by wall.\n");
 		return (0);
@@ -61,25 +62,25 @@ int	ft_key_press(int keycode, t_game *game)
 	if (keycode == KEY_W)
 	{
 		new_player_x--;
-		if (ft_is_valid_move(game, new_player_x, new_player_y))
+		if (ft_is_valid_move(game, new_player_x, new_player_y) > 0)
 			ft_move_player(game, new_player_x, new_player_y);
 	}
 	else if (keycode == KEY_A)
 	{
 		new_player_y--;
-		if (ft_is_valid_move(game, new_player_x, new_player_y))
+		if (ft_is_valid_move(game, new_player_x, new_player_y) > 0)
 			ft_move_player(game, new_player_x, new_player_y);
 	}
 	else if (keycode == KEY_S)
 	{
 		new_player_x++;
-		if (ft_is_valid_move(game, new_player_x, new_player_y))
+		if (ft_is_valid_move(game, new_player_x, new_player_y) > 0)
 			ft_move_player(game, new_player_x, new_player_y);
 	}
 	else if (keycode == KEY_D)
 	{
 		new_player_y++;
-		if (ft_is_valid_move(game, new_player_x, new_player_y))
+		if (ft_is_valid_move(game, new_player_x, new_player_y) > 0)
 			ft_move_player(game, new_player_x, new_player_y);
 	}
 	else if (keycode == KEY_ESC)
