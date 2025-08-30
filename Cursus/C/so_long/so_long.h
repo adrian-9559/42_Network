@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: agarcia <agarcia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 14:47:45 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 15:46:08 by agarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "./lib/mlx/mlx.h"
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include "./lib/mlx/mlx.h"
 
 # define TILE_SIZE 100
 # define BUFFER_SIZE 1024
@@ -47,23 +47,23 @@
 
 typedef struct s_game
 {
-	char	**map;
-	void	*mlx;
-	void	*wall_img;
-	void	*floor_img;
-	void	*player_img;
-	void	*exit_img;
-	void	*collectibles_img;
-	void	*win;
-	int		rows;
-	int		cols;
-	int		player_x;
-	int		player_y;
-	int		exit_x;
-	int		exit_y;
-	int		total_collectibles;
-	int		collectibles;
-}	t_game;
+	char		**map;
+	void		*mlx;
+	void		*wall_img;
+	void		*floor_img;
+	void		*player_img;
+	void		*exit_img;
+	void		*collectibles_img;
+	void		*win;
+	int			rows;
+	int			cols;
+	int			player_x;
+	int			player_y;
+	int			exit_x;
+	int			exit_y;
+	int			total_collectibles;
+	int			collectibles;
+}				t_game;
 
 // Functions lib
 int				ft_putstr_error(const char *str);
@@ -120,7 +120,7 @@ void			ft_place_random_entities(int *rows_cols, char **map,
 // Game functions
 int				ft_game(const char *filename);
 int				ft_start_game(const char *filename, t_game *game);
-int				ft_init_game(t_game *game);
+int				ft_init_mlx(t_game *game);
 int				ft_close_game(t_game *game);
 int				ft_key_press(int keycode, t_game *game);
 // Image

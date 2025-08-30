@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
+#    By: agarcia <agarcia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 11:13:09 by adriescr          #+#    #+#              #
-#    Updated: 2025/08/30 14:29:38 by adriescr         ###   ########.fr        #
+#    Updated: 2025/08/30 15:31:49 by agarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ LIB_PROJECT_NAME = $(LIB_PROJECT_DIR)/lib_project.a
 LIB_MLX_NAME = $(LIB_MLX_DIR)/libmlx.a
 
 # Compiler and flags
-CC = gcc
+CC = cc
 AR = ar rcs
-CFLAGS = -Wall -Wextra -Werror -w -g
+CFLAGS = -Wall -Wextra -Werror -w
 MINI_LIB_FLAGS = -I$(LIB_MLX_DIR) -L$(LIB_MLX_DIR) -lmlx -framework OpenGL -framework AppKit -w
 
 # Source files
