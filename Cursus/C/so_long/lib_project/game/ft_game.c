@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 16:18:24 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 13:20:44 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 13:44:16 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	ft_game(const char *filename)
 		return (-1);
 	printf("Game collectibles: %d\n", game->total_collectibles);
 	// Game loop and other logic would go here
-	mlx_hook(game->win, 2, 1L << 0, ft_key_press, game);
-	mlx_hook(game->win, 17, 1L << 17, ft_close_game, game);
+	mlx_hook(game->win, 2, 1L, ft_key_press, game);
+	mlx_hook(game->win, 17, 1L, ft_close_game, game);
 	mlx_loop_hook(game->mlx, ft_load_textures, game);
 	mlx_loop(game->mlx);
-	// Only free resources after the loop ends
-	ft_close_game(game);
+	// Resources are freed in ft_close_game via the hook, so no need to call it here
 	return (0);
 }
 
@@ -41,29 +40,18 @@ int	ft_key_press(int keycode, t_game *game)
 	printf("Player: %d %d\n", game->player_x, game->player_y);
 	printf("keycode: %d\n", keycode);
 	if (keycode == KEY_W)
-	{
-		if (ft_move_player(game, game->player_x - 1, game->player_y) < 0)
-			return (-1);
-	} // Arriba
+		ft_move_player(game, game->player_x - 1, game->player_y);
 	else if (keycode == KEY_A)
-	{
-		if (ft_move_player(game, game->player_x, game->player_y - 1) < 0)
-			return (-1);
-	} // Izquierda
+		ft_move_player(game, game->player_x, game->player_y - 1);
 	else if (keycode == KEY_S)
-	{
-		if (ft_move_player(game, game->player_x + 1, game->player_y) < 0)
-			return (-1);
-	} // Abajo
+		ft_move_player(game, game->player_x + 1, game->player_y);
 	else if (keycode == KEY_D)
-	{
-		if (ft_move_player(game, game->player_x, game->player_y + 1) < 0)
-			return (-1);
-	} // Derecha
+		ft_move_player(game, game->player_x, game->player_y + 1);
 	else if (keycode == KEY_ESC)
 	{
 		ft_close_game(game);
 		return (-1);
 	}
+	printf("Player: %d %d\n", game->player_x, game->player_y);
 	return (0);
 }
