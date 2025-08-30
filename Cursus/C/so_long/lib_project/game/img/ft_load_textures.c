@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:14:16 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:58:52 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:05:19 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	ft_load_textures(t_game *game)
 	int	j;
 
 	i = 0;
-	while (i < game->rows)
+	while (i < game->cols)
 	{
 		j = 0;
-		while (j < game->cols)
+		while (j < game->rows)
 		{
 			if (ft_mlx_print_image(game, i, j) < 0)
 				return (-1);

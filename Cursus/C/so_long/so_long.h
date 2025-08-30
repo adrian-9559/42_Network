@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 22:07:22 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 12:30:13 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@
 # define MAP_COLS 13
 
 // Texture files
-# define FLOOR_FILE_NAME "src/textures/floor.xpm"
-# define WALL_FILE_NAME "src/textures/wall.xpm"
-# define EXIT_FILE_NAME "src/textures/exit.xpm"
-# define COLLECTIBLES_FILE_NAME "src/textures/collectible.xpm"
-# define PLAYER_FILE_NAME "src/textures/player.xpm"
+# define FLOOR_FILE_NAME "./src/textures/floor.xpm"
+# define WALL_FILE_NAME "./src/textures/wall.xpm"
+# define EXIT_FILE_NAME "./src/textures/exit.xpm"
+# define COLLECTIBLES_FILE_NAME "./src/textures/collectible.xpm"
+# define PLAYER_FILE_NAME "./src/textures/player.xpm"
 
 // Utils map
 # define HEIGHT_IMAGE 100
 # define WIDTH_IMAGE 100
 
-// Keys
+// Keyboard keys
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -50,6 +50,7 @@ typedef struct s_game
 	char	**map;
 	void	*mlx;
 	void	*wall_img;
+	void	*floor_img;
 	void	*player_img;
 	void	*exit_img;
 	void	*collectibles_img;
@@ -60,6 +61,7 @@ typedef struct s_game
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
+	int		total_collectibles;
 	int		collectibles;
 }	t_game;
 
@@ -125,9 +127,10 @@ int				ft_key_press(int keycode, t_game *game);
 int				ft_load_textures(t_game *game);
 // Player
 int				ft_set_player_position(t_game *game, int x, int y);
-// Collectives
-int				ft_collect_prize(t_game *game, int new_x, int new_y);
+int				ft_find_player(t_game *game);
 int				ft_move_player(t_game *game, int new_x, int new_y);
+// Collectives
+int				ft_find_total_collectibles(t_game *game);
 // MLX
 // Image
 int				ft_mlx_print_image(t_game *game, int x, int y);

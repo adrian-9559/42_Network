@@ -6,7 +6,7 @@
 #    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 11:13:09 by adriescr          #+#    #+#              #
-#    Updated: 2025/08/29 16:20:30 by adriescr         ###   ########.fr        #
+#    Updated: 2025/08/30 12:33:40 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,9 +72,10 @@ MY_LIB_PROJECT_SOURCES = \
 	$(LIB_GAME_DIR)/img/ft_load_textures.c \
 	$(LIB_GAME_DIR)/mlx/img/ft_init_mlx_textures.c \
 	$(LIB_GAME_DIR)/mlx/img/ft_print_mlx_image.c \
-	$(LIB_GAME_DIR)/collectibles/ft_collect_prize.c \
+	$(LIB_GAME_DIR)/collectibles/ft_find_total_collectibles.c \
 	$(LIB_GAME_DIR)/player/ft_move_player.c \
-	$(LIB_GAME_DIR)/player/ft_set_player_position.c
+	$(LIB_GAME_DIR)/player/ft_set_player_position.c \
+	$(LIB_GAME_DIR)/player/ft_find_player.c
 
 MY_LIB = \
 	$(LIB_DIR)/ft_is_digit.c \

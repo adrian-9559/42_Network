@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:18:33 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 16:24:09 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 13:21:09 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	ft_close_game(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
-	ft_free_map(game->map, game->rows);
+	if (game && game->mlx && game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game && game->map)
+		ft_free_map(game->map, game->rows);
 	free(game);
-	return (0);
+	exit(0);
+	return (-1);
 }

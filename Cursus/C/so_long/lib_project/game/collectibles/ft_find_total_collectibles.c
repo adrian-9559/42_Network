@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_collect_prize.c                                 :+:      :+:    :+:   */
+/*   ft_find_total_collectibles.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:36:48 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:58:41 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 12:41:16 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
-int	ft_collect_prize(t_game *game, int new_x, int new_y)
+int	ft_find_total_collectibles(t_game *game)
 {
-	game->map[new_x][new_y] = '0';
-	game->collectibles--;
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (i < game->rows)
+	{
+		j = 0;
+		while (j < game->cols)
+		{
+			if (game->map[i][j] == 'C')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	printf("Total collectibles found: %d\n", count);
+	game->total_collectibles = count;
 	return (0);
 }

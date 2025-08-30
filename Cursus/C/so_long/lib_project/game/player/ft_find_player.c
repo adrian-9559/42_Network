@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_find_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 13:39:52 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 23:30:48 by adriescr         ###   ########.fr       */
+/*   Created: 2025/08/30 12:11:59 by adriescr          #+#    #+#             */
+/*   Updated: 2025/08/30 12:12:42 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../so_long.h"
+#include "./../../../so_long.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_find_player(t_game *game)
 {
-	size_t	len;
+	int	i;
+	int	j;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = 0;
+	while (i < game->rows)
+	{
+		j = 0;
+		while (j < game->cols)
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player_x = j;
+				game->player_y = i;
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (ft_putstr_error("Error\n Function: ft_find_player\n"
+			"	Player position not found in map.\n"), -1);
 }
