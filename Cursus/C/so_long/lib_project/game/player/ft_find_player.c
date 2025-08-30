@@ -6,13 +6,13 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 12:11:59 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 12:12:42 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 14:47:36 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
-int	ft_find_player(t_game *game)
+int	ft_find_player_game(t_game *game)
 {
 	int	i;
 	int	j;

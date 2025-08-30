@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 11:57:08 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 13:31:25 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 14:47:58 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_init_game(t_game *game)
 	for (i = 0; i < game->rows; i++)
 		ft_putstr(game->map[i]);
 	ft_putstr("\n");
-	ft_find_player(game);
+	ft_find_player_game(game);
 	printf("Player found at: (%d, %d)\n", game->player_x, game->player_y);
 	game->mlx = mlx_init();
 	if (!game->mlx)

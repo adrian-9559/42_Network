@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 13:31:14 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/30 14:47:45 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int				ft_key_press(int keycode, t_game *game);
 int				ft_load_textures(t_game *game);
 // Player
 int				ft_set_player_position(t_game *game, int x, int y);
-int				ft_find_player(t_game *game);
+int				ft_find_player_game(t_game *game);
 int				ft_move_player(t_game *game, int new_x, int new_y);
 // Collectives
 int				ft_find_total_collectibles(t_game *game);
