@@ -6,12 +6,26 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:44:05 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 18:17:32 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:16:56 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
+/*
+ * ENGLISH: Generates a simple map.
+ *
+ * SPANISH: Genera un mapa simple.
+ *
+ * @param rows_cols  The dimensions of the map.
+ *                   Las dimensiones del mapa.
+ *
+ * @param map       The map to modify.
+ *                  El mapa a modificar.
+ *
+ * @param seed      The seed for random number generation.
+ *                  La semilla para la generación de números aleatorios.
+ */
 void	ft_generate_simple_map(int *rows_cols, char **map,
 			unsigned int seed)
 {

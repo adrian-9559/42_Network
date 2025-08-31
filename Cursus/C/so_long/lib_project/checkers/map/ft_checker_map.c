@@ -6,12 +6,31 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 19:39:40 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:54:24 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:06:25 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
+/*
+ * ENGLISH: Checks if the map is valid.
+ *
+ * SPANISH: Verifica si el mapa es válido.
+ *
+ * @param map   The map to check. /
+ *              El mapa a verificar.
+ *
+ * @param rows  The number of rows in the map. /
+ *              El número de filas en el mapa.
+ *
+ * @returns int
+ *
+ * - Returns 0 if the map is valid.
+ *   Devuelve 0 si el mapa es válido.
+ *
+ * - Returns -1 otherwise.
+ *   Devuelve -1 en caso contrario.
+ */
 int	ft_checker_map(const char *filename)
 {
 	char	**map;

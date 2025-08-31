@@ -6,12 +6,23 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 20:09:15 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 13:22:07 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 11:58:34 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
+/*
+ * ENGLISH: Calculates the factorial of a given number.
+ *
+ * SPANISH: Calcula el factorial de un número dado.
+ *
+ * @param n   The number to calculate the factorial for. /
+ *            El número para calcular el factorial.
+ *
+ * @returns The factorial of the given number. /
+ *          El factorial del número dado.
+ */
 int	ft_atoi(const char *str)
 {
 	int		result;

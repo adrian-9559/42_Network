@@ -6,12 +6,34 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:03:06 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:56:26 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:16:50 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
+/*
+ * ENGLISH: Allocates memory for the map rows.
+ *
+ * SPANISH: Asigna memoria para las filas del mapa.
+ *
+ * @param map   The map to modify.
+ *              El mapa a modificar.
+ *
+ * @param rows  The number of rows in the map.
+ *              El número de filas en el mapa.
+ *
+ * @param cols  The number of columns in the map.
+ *              El número de columnas en el mapa.
+ *
+ * @returns int
+ *
+ * - 0 on success.
+ *   0 en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 static int	ft_allocate_map_rows(char **map, int rows, int cols)
 {
 	int	i;
@@ -34,6 +56,22 @@ static int	ft_allocate_map_rows(char **map, int rows, int cols)
 	return (0);
 }
 
+/*
+ * ENGLISH: Generates a new map.
+ *
+ * SPANISH: Genera un nuevo mapa.
+ *
+ * @param filename  The name of the file to create.
+ *                  El nombre del archivo a crear.
+ *
+ * @returns int
+ *
+ * - 0 on success.
+ *   0 en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 int	ft_generate_map(const char *filename)
 {
 	int				rows_cols[2];
@@ -60,6 +98,25 @@ int	ft_generate_map(const char *filename)
 	return (0);
 }
 
+/*
+ * ENGLISH: Resets the map rows.
+ *
+ * SPANISH: Restablece las filas del mapa.
+ *
+ * @param rows_cols  The dimensions of the map.
+ *                   Las dimensiones del mapa.
+ *
+ * @param map       The map to modify.
+ *                  El mapa a modificar.
+ *
+ * @returns int
+ *
+ * - 0 on success.
+ *   0 en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 static int	ft_reset_map_rows(int *rows_cols, char **map)
 {
 	int	i;
@@ -80,6 +137,22 @@ static int	ft_reset_map_rows(int *rows_cols, char **map)
 	return (0);
 }
 
+/*
+ * ENGLISH: Generates a new map.
+ *
+ * SPANISH: Genera un nuevo mapa.
+ *
+ * @param filename  The name of the file to create.
+ *                  El nombre del archivo a crear.
+ *
+ * @returns int
+ *
+ * - 0 on success.
+ *   0 en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 int	ft_generate_map_rand_internal(int *rows_cols, char **map,
 	unsigned int seed, int attempt)
 {

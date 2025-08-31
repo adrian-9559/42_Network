@@ -6,12 +6,25 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 21:45:58 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 13:23:43 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:01:22 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
+/*
+ * ENGLISH: Frees all allocated memory for an array of strings.
+ *
+ * SPANISH: Libera toda la memoria asignada para un array de cadenas.
+ *
+ * @param arr   The array of strings to free. /
+ *              El array de cadenas a liberar.
+ * @param j     The number of strings in the array. /
+ *              El número de cadenas en el array.
+ *
+ * @returns NULL. /
+ *          NULL.
+ */
 static void	*free_all(char **arr, size_t j)
 {
 	while (j > 0)
@@ -20,6 +33,19 @@ static void	*free_all(char **arr, size_t j)
 	return (NULL);
 }
 
+/*
+ * ENGLISH: Splits a string into an array of strings.
+ *
+ * SPANISH: Divide una cadena en un array de cadenas.
+ *
+ * @param s   The string to split. /
+ *            La cadena a dividir.
+ * @param c   The delimiter character. /
+ *            El carácter delimitador.
+ *
+ * @returns A NULL-terminated array of strings on success, NULL on failure. /
+ *          Un array de cadenas terminado en NULL en caso de éxito, NULL en caso de error.
+ */
 char	**ft_split(char const *s, char c)
 {
 	size_t	vars[4];

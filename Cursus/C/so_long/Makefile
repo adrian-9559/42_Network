@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agarcia <agarcia@student.42.fr>            +#+  +:+       +#+         #
+#    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 11:13:09 by adriescr          #+#    #+#              #
-#    Updated: 2025/08/30 15:31:49 by agarcia          ###   ########.fr        #
+#    Updated: 2025/08/30 16:28:08 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ MY_LIB = \
 	$(LIB_DIR)/ft_strcmp.c \
 	$(LIB_DIR)/ft_rand.c \
 	$(LIB_DIR)/ft_file_utils.c \
+	$(LIB_DIR)/ft_putnbr.c \
 	$(LIB_DIR)/get_next_line/get_next_line.c
 
 # Project resources

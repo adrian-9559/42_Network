@@ -6,12 +6,25 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:16:37 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 14:16:56 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:01:57 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
+/*
+ * ENGLISH: Joins two strings into a new string.
+ *
+ * SPANISH: Une dos cadenas en una nueva cadena.
+ *
+ * @param s1   The first string. /
+ *              La primera cadena.
+ * @param s2   The second string. /
+ *              La segunda cadena.
+ *
+ * @returns A pointer to the new string, or NULL on failure. /
+ *          Un puntero a la nueva cadena, o NULL en caso de error.
+ */
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new_str;

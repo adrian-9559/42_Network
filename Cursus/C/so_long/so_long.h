@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agarcia <agarcia@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/30 15:46:08 by agarcia          ###   ########.fr       */
+/*   Updated: 2025/08/31 12:22:53 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,91 @@
 # define KEY_D 2
 # define KEY_ESC 53
 
+/*
+ * ENGLISH: Represents the main header file for the so_long project.
+ *
+ * - Contains declarations, macros, and structure definitions used throughout the so_long program.
+ * - Used to centralize and organize shared resources for the game's implementation.
+ * - Ensure all required types and function prototypes are properly declared before use.
+ *
+ * SPANISH: Representa el archivo de cabecera principal para el proyecto so_long.
+ *
+ * - Contiene declaraciones, macros y definiciones de estructuras utilizadas en todo el programa so_long.
+ * - Se utiliza para centralizar y organizar los recursos compartidos para la implementación del juego.
+ * - Asegúrese de que todos los tipos y prototipos de funciones requeridos estén correctamente declarados antes de usar.
+ */
+
+/*
+ * ENGLISH/SPANISH: Variable documentation for t_game structure.
+ *
+ * @member {char **} map
+ *      - EN: 2D array representing the game map.
+ *      - ES: Matriz bidimensional que representa el mapa del juego.
+ *
+ * @member {void *} mlx
+ *      - EN: Pointer to the MLX graphics context.
+ *      - ES: Puntero al contexto gráfico MLX.
+ *
+ * @member {void *} wall_img
+ *      - EN: Pointer to the wall image texture.
+ *      - ES: Puntero a la textura de imagen de pared.
+ *
+ * @member {void *} floor_img
+ *      - EN: Pointer to the floor image texture.
+ *      - ES: Puntero a la textura de imagen de suelo.
+ *
+ * @member {void *} player_img
+ *      - EN: Pointer to the player image texture.
+ *      - ES: Puntero a la textura de imagen del jugador.
+ *
+ * @member {void *} exit_img
+ *      - EN: Pointer to the exit image texture.
+ *      - ES: Puntero a la textura de imagen de salida.
+ *
+ * @member {void *} collectibles_img
+ *      - EN: Pointer to the collectibles image texture.
+ *      - ES: Puntero a la textura de imagen de coleccionables.
+ *
+ * @member {void *} win
+ *      - EN: Pointer to the game window.
+ *      - ES: Puntero a la ventana del juego.
+ *
+ * @member {int} moves
+ *      - EN: Number of moves made by the player.
+ *      - ES: Número de movimientos realizados por el jugador.
+ *
+ * @member {int} rows
+ *      - EN: Number of rows in the map.
+ *      - ES: Número de filas en el mapa.
+ *
+ * @member {int} cols
+ *      - EN: Number of columns in the map.
+ *      - ES: Número de columnas en el mapa.
+ *
+ * @member {int} player_x
+ *      - EN: X position of the player on the map.
+ *      - ES: Posición X del jugador en el mapa.
+ *
+ * @member {int} player_y
+ *      - EN: Y position of the player on the map.
+ *      - ES: Posición Y del jugador en el mapa.
+ *
+ * @member {int} exit_x
+ *      - EN: X position of the exit on the map.
+ *      - ES: Posición X de la salida en el mapa.
+ *
+ * @member {int} exit_y
+ *      - EN: Y position of the exit on the map.
+ *      - ES: Posición Y de la salida en el mapa.
+ *
+ * @member {int} total_collectibles
+ *      - EN: Total number of collectibles in the map.
+ *      - ES: Número total de coleccionables en el mapa.
+ *
+ * @member {int} collectibles
+ *      - EN: Number of collectibles collected by the player.
+ *      - ES: Número de coleccionables recogidos por el jugador.
+ */
 typedef struct s_game
 {
 	char		**map;
@@ -55,6 +140,7 @@ typedef struct s_game
 	void		*exit_img;
 	void		*collectibles_img;
 	void		*win;
+	int			moves;
 	int			rows;
 	int			cols;
 	int			player_x;
@@ -77,6 +163,7 @@ char			**ft_split(char const *s, char c);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 size_t			ft_count_words(const char *s, char c);
 size_t			ft_strlen(const char *s);
+void			ft_putnbr(int n);
 char			*ft_strjoin(char *s1, char *s2);
 char			*ft_strdup(const char *s);
 char			*ft_substr(char *s, unsigned int start, size_t len);

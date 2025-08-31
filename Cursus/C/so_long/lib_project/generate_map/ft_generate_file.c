@@ -6,12 +6,28 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:04:22 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/29 21:55:48 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:15:54 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
+/*
+ * ENGLISH: Generates a new map file.
+ *
+ * SPANISH: Genera un nuevo archivo de mapa.
+ *
+ * @param filename  The name of the file to create.
+ *                  El nombre del archivo a crear.
+ *
+ * @returns int
+ *
+ * - The file descriptor on success.
+ *   El descriptor de archivo en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 int	ft_generate_file(const char *filename)
 {
 	int	file;

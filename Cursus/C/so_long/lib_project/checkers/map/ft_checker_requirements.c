@@ -6,12 +6,28 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 23:09:53 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 23:41:28 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:06:33 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
+/*
+ * ENGLISH: Checks if the map meets the requirements.
+ *
+ * SPANISH: Verifica si el mapa cumple con los requisitos.
+ *
+ * @param map   The map to check. /
+ *              El mapa a verificar.
+ *
+ * @returns int
+ *
+ * - Returns 0 if the map meets the requirements.
+ *   Devuelve 0 si el mapa cumple con los requisitos.
+ *
+ * - Returns -1 otherwise.
+ *   Devuelve -1 en caso contrario.
+ */
 int	ft_checker_requirements(char **map)
 {
 	int	conts[2];

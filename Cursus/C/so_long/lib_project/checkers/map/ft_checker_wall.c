@@ -6,12 +6,34 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 21:00:59 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 22:46:18 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:06:41 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
+/*
+ * ENGLISH: Checks if the walls of the map are intact.
+ *
+ * SPANISH: Verifica si las paredes del mapa están intactas.
+ *
+ * @param map   The map to check. /
+ *              El mapa a verificar.
+ *
+ * @param rows  The number of rows in the map. /
+ *              El número de filas en el mapa.
+ *
+ * @param cols  The number of columns in the map. /
+ *              El número de columnas en el mapa.
+ *
+ * @returns int
+ *
+ * - Returns 0 if the walls are intact.
+ *   Devuelve 0 si las paredes están intactas.
+ *
+ * - Returns -1 otherwise.
+ *   Devuelve -1 en caso contrario.
+ */
 int	ft_checker_wall(char **map, int rows, int cols)
 {
 	int	j;

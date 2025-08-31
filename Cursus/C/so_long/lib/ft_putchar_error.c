@@ -6,12 +6,23 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:42:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 13:51:51 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:00:25 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
+/*
+ * ENGLISH: Outputs a character to the standard error output.
+ *
+ * SPANISH: Envía un carácter a la salida de error estándar.
+ *
+ * @param c   The character to output. /
+ *            El carácter a enviar.
+ *
+ * @returns 0 on success, -1 on failure. /
+ *          0 en caso de éxito, -1 en caso de error.
+ */
 int	ft_putchar_error(char c)
 {
 	const char	*red;

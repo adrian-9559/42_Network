@@ -6,12 +6,34 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:11:10 by adriescr          #+#    #+#             */
-/*   Updated: 2025/07/09 18:36:00 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/08/31 12:15:47 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
+/*
+ * ENGLISH: Saves the map to a file.
+ *
+ * SPANISH: Guarda el mapa en un archivo.
+ *
+ * @param filename  The name of the file to save the map.
+ *                  El nombre del archivo para guardar el mapa.
+ *
+ * @param map      The map to save.
+ *                 El mapa a guardar.
+ *
+ * @param rows     The number of rows in the map.
+ *                 El número de filas en el mapa.
+ *
+ * @returns int
+ *
+ * - 0 on success.
+ *   0 en caso de éxito.
+ *
+ * - -1 if an error occurs.
+ *   -1 si ocurre un error.
+ */
 int	ft_save_map_to_file(const char *filename, char **map, int rows)
 {
 	int		fd;
