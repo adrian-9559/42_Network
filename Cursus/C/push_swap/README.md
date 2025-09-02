@@ -80,7 +80,7 @@ Para validar este proyecto, deberás realizar ciertas pruebas con un número mí
 - Para una validación máxima del proyecto y poder obtener los bonus, además del paso anterior, deberás ordenar **500 números aleatorios en menos de 5500 operaciones**.
 
 # 📝 **Nota de la corrección**  
-🎯 **Puntuación obtenida:** ND / 125  
+🎯 **Puntuación obtenida:** 98 / 125  
 
 🔍 **Consejo:** Revisa los puntos donde perdiste puntuación para aprender de ellos y evitar errores similares en el futuro. 🚀  
 
