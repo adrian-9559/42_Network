@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker_requirements.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 23:09:53 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/02 15:28:45 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:22:48 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

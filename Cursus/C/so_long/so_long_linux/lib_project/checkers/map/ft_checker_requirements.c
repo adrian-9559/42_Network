@@ -28,7 +28,7 @@
  * - Returns -1 otherwise.
  *   Devuelve -1 en caso contrario.
  */
-int	ft_checker_reqs(char **map)
+int	ft_checker_requirements(char **map)
 {
 	int	conts[2];
 	int	reqs[3];
