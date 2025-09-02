@@ -9,22 +9,13 @@ OBJ=$(OBJ1:.m=.o)
 CFLAGS+=-O2
 
 # add to match string put with X11 in size and position
-CFLAGS+= -DSTRINGPUTX11 -w
+CFLAGS+= -DSTRINGPUTX11
 
 all: $(NOM)
 
 $(NOM):	$(OBJ)
-	@ar -rcs $(NOM) $(OBJ) > /dev/null 2>&1
-	@ranlib $(NOM) > /dev/null 2>&1
-	@if [ $$? -ne 0 ]; then \
-		echo "\033[31mError durante la compilación.\033[0m"; \
-	fi
-
-%.o: %.c
-	@cc $(CFLAGS) -c -o $@ $<
-
-%.o: %.m
-	@cc $(CFLAGS) -c -o $@ $<
+	ar -r $(NOM) $(OBJ)
+	ranlib $(NOM)
 
 clean:
 	rm -f $(NOM) $(OBJ) *~
