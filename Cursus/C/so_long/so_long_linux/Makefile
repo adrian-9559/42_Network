@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
+#    By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 11:13:09 by adriescr          #+#    #+#              #
-#    Updated: 2025/09/02 15:35:15 by adriescr         ###   ########.fr        #
+#    Updated: 2025/09/02 15:52:08 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,14 +141,14 @@ $(LIB_NAME): $(MY_LIB_OBJECTS)
 	@$(AR) $(LIB_NAME) $(MY_LIB_OBJECTS)
 
 # Compile the main executable
-$(NAME): $(MY_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) $(LIB_MLX_NAME)
-	@echo "\033[34mCompilando so_long...\033[0m"
-	@$(CC) $(CFLAGS) $(MY_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) $(MINI_LIB_FLAGS) -o $(NAME)
+$(NAME): $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) $(LIB_MLX_NAME) $(MY_LIB_PROJECT_OBJECTS)
+	@echo "\033[34mCompiling so_long...\033[0m"
+	@$(CC) $(CFLAGS) $(MY_OBJECTS) $(MY_LIB_OBJECTS) $(LIB_NAME) $(LIB_PROJECT_NAME) $(MINI_LIB_FLAGS) -o $(NAME)
 	@chmod 755 $(NAME)
 	@if [ $$? -eq 0 ]; then \
-		echo "\033[32mCompilación finalizada correctamente.\033[0m"; \
+		echo "\033[32mCompilation finished successfully.\033[0m"; \
 	else \
-		echo "\033[31mError durante la compilación.\033[0m"; \
+		echo "\033[31mError during compilation.\033[0m"; \
 	fi
 
 # Compile object files

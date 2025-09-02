@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker_requirements.c                          :+:      :+:    :+:   */
+/*   ft_checker_reqs.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 23:09:53 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/02 15:28:45 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:16:09 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../../so_long.h"
 
 /*
- * ENGLISH: Checks if the map meets the requirements.
+ * ENGLISH: Checks if the map meets the reqs.
  *
  * SPANISH: Verifica si el mapa cumple con los requisitos.
  *
@@ -22,20 +22,20 @@
  *
  * @returns int
  *
- * - Returns 0 if the map meets the requirements.
+ * - Returns 0 if the map meets the reqs.
  *   Devuelve 0 si el mapa cumple con los requisitos.
  *
  * - Returns -1 otherwise.
  *   Devuelve -1 en caso contrario.
  */
-int	ft_checker_requirements(char **map)
+int	ft_checker_reqs(char **map)
 {
 	int	conts[2];
-	int	requirements[3];
+	int	reqs[3];
 
-	requirements[0] = 0;
-	requirements[1] = 0;
-	requirements[2] = 0;
+	reqs[0] = 0;
+	reqs[1] = 0;
+	reqs[2] = 0;
 	conts[0] = 0;
 	while (map[conts[0]])
 	{
@@ -44,18 +44,15 @@ int	ft_checker_requirements(char **map)
 		{
 			if (!ft_strchr("01CEP", map[conts[0]][conts[1]]))
 				return (-1);
-			
 			if (map[conts[0]][conts[1]] == 'C')
-				requirements[0]++;
+				reqs[0]++;
 			else if (map[conts[0]][conts[1]] == 'E')
-				requirements[1]++;
+				reqs[1]++;
 			else if (map[conts[0]][conts[1]] == 'P')
-				requirements[2]++;
+				reqs[2]++;
 			conts[1]++;
 		}
 		conts[0]++;
 	}
-	if (requirements[0] < 1 || requirements[1] != 1 || requirements[2] != 1)
-		return (-1);
-	return (0);
+	return (reqs[0] >= 1 && reqs[1] == 1 && reqs[2] == 1);
 }

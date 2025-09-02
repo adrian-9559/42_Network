@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_file_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:28:46 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/31 11:59:37 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:03:56 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
  *                   El nombre del archivo a abrir.
  *
  * @returns The file descriptor for the opened file, or -1 on failure. /
- *          El descriptor de archivo para el archivo abierto, o -1 en caso de error.
+ *          El descriptor de archivo para el archivo abierto, o -1 en 
+ * 			caso de error.
  */
 int	ft_open_file_read(const char *filename)
 {
@@ -42,7 +43,8 @@ int	ft_open_file_read(const char *filename)
  *                   El nombre del archivo a abrir.
  *
  * @returns The file descriptor for the opened file, or -1 on failure. /
- *          El descriptor de archivo para el archivo abierto, o -1 en caso de error.
+ *          El descriptor de archivo para el archivo abierto, o -1 en 
+ * 			caso de error.
  */
 int	ft_open_file_write(const char *filename)
 {

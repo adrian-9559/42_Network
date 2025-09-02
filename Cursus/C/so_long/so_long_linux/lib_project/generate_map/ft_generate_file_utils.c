@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_generate_file_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:11:10 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/31 12:15:47 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 15:46:17 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

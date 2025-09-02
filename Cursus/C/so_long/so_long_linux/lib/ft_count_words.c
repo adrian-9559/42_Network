@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:23:07 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/31 11:59:09 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:03:17 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
 /*
- * ENGLISH: Counts the number of words in a string, separated by a given delimiter.
+ * ENGLISH: Counts the number of words in a string, 
+ *	separated by a given delimiter.
  *
- * SPANISH: Cuenta el número de palabras en una cadena, separadas por un delimitador dado.
+ * SPANISH: Cuenta el número de palabras en una cadena, 
+ * 	separadas por un delimitador dado.
  *
  * @param s   The string to count words in. /
  *            La cadena en la que contar las palabras.

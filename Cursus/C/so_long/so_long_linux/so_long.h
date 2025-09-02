@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adriescr <adriescr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:20:14 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/01 16:33:52 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:02:56 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,32 @@
 # define WIDTH_IMAGE 100
 
 // Keyboard keys
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_ESC 53
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_ESC 65307
 
 /*
  * ENGLISH: Represents the main header file for the so_long project.
  *
- * - Contains declarations, macros, and structure definitions used throughout the so_long program.
- * - Used to centralize and organize shared resources for the game's implementation.
- * - Ensure all required types and function prototypes are properly declared before use.
+ * - Contains declarations, macros, and structure definitions used 
+ * 	throughout the so_long program.
+ * - Used to centralize and organize shared resources for the game's 
+ * 	implementation.
+ * - Ensure all required types and function prototypes are properly 
+ * 	declared before use.
  *
- * SPANISH: Representa el archivo de cabecera principal para el proyecto so_long.
+ * SPANISH: Representa el archivo de cabecera principal para el 
+ * 			proyecto so_long.
  *
- * - Contiene declaraciones, macros y definiciones de estructuras utilizadas en todo el programa so_long.
- * - Se utiliza para centralizar y organizar los recursos compartidos para la implementación del juego.
- * - Asegúrese de que todos los tipos y prototipos de funciones requeridos estén correctamente declarados antes de usar.
- */
-
-/*
+ * - Contiene declaraciones, macros y definiciones de estructuras 
+ * 	utilizadas en todo el programa so_long.
+ * - Se utiliza para centralizar y organizar los recursos compartidos 
+ * 	para la implementación del juego.
+ * - Asegúrese de que todos los tipos y prototipos de funciones 
+ * 	requeridos estén correctamente declarados antes de usar.
+ *
  * ENGLISH/SPANISH: Variable documentation for t_game structure.
  *
  * @member {char **} map
