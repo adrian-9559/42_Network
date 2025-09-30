@@ -1,0 +1,5 @@
+# Program complied
+./philosophers
+
+# Compiled object files
+objs/
