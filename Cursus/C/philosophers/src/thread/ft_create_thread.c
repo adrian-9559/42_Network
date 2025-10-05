@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:40:15 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/30 13:15:32 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:44:30 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ int	ft_create_thread(t_data *data)
 		free(data->forks);
 		return (1);
 	}
+	if (pthread_mutex_init(&data->eat_mtx, NULL) != 0)
+	{
+		ft_error(name_function, (char *[2]){ERR_INIT_MUTEX, NULL});
+		pthread_mutex_destroy(&data->print);
+		free(data->forks);
+		return (1);
+	}
+	if (pthread_cond_init(&data->eat_cond, NULL) != 0)
+	{
+		ft_error(name_function, (char *[2]){"Failed to init cond", NULL});
+		pthread_mutex_destroy(&data->eat_mtx);
+		pthread_mutex_destroy(&data->print);
+		free(data->forks);
+		return (1);
+	}
+	data->eaters_count = 0;
 	data->stop = 0;
 	data->start_time = ft_now_ms();
 	return (0);

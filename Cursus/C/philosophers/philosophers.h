@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/30 13:32:10 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/05 21:28:30 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ typedef struct s_data
 	long				number_of_times_each_philosopher_must_eat;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		print;
+	int					eaters_count;
+	pthread_mutex_t		eat_mtx;
+	pthread_cond_t		eat_cond;
 	volatile int		stop;
 	long				start_time;
 }	t_data;
@@ -154,7 +157,7 @@ typedef struct s_philosopher
 /* ************************************************************************** */
 
 // Main function
-int				ft_philosophers(t_data data);
+ int				ft_philosophers(t_data *data);
 
 // Utils functions
 long			ft_atoi(const char *str);
@@ -179,6 +182,7 @@ int				ft_init_mutexes(pthread_mutex_t *forks,
 
 // Time functions
 void			ft_ms_sleep(long ms);
+void			ft_ms_sleep_check(t_data *data, long ms);
 long			ft_now_ms(void);
 long			ft_timeval_to_ms(struct timeval *tv);
 

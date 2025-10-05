@@ -20,3 +20,17 @@ void	ft_ms_sleep(long ms)
 	while ((ft_now_ms() - start) < ms)
 		usleep(500);
 }
+
+/* Sleep but return early if data->stop is set to reduce prints after death */
+void	ft_ms_sleep_check(t_data *data, long ms)
+{
+	long start;
+
+	start = ft_now_ms();
+	while ((ft_now_ms() - start) < ms)
+	{
+		if (data && data->stop)
+			break ;
+		usleep(200);
+	}
+}

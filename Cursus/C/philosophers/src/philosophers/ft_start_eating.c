@@ -18,7 +18,10 @@ int	ft_start_eating(t_philosopher *philo)
 	philo->last_meal_ms = ft_now_ms();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->meal_mtx);
+	/* If stop was set while updating meal info, avoid printing/eating to prevent messages after death */
+	if (philo->data->stop)
+		return (0);
 	ft_print_status(philo->data, philo->id, "is eating");
-	ft_ms_sleep(philo->data->time_to_eat);
+	ft_ms_sleep_check(philo->data, philo->data->time_to_eat);
 	return (0);
 }

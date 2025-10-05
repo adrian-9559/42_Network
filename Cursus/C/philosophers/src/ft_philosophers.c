@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:09:01 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/30 13:21:37 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:03:57 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static int	ft_join_philosopher_threads(t_philosopher *philosophers,
 	return (0);
 }
 
-int	ft_philosophers(t_data data)
+int	ft_philosophers(t_data *data)
 {
 	const char		*name_function = "(ft_philosophers.c)";
 	t_philosopher	*philosophers;
 	pthread_t		monitor_thread;
 
-	philosophers = ft_create_philosophers(&data);
+	philosophers = ft_create_philosophers(data);
 	if (!philosophers)
 		return (1);
 	if (ft_spawn_philosophers(philosophers) != 0)
@@ -58,7 +58,7 @@ int	ft_philosophers(t_data data)
 		ft_destroy_philosophers(philosophers);
 		return (1);
 	}
-	ft_join_philosopher_threads(philosophers, data.number_of_philosophers);
+	ft_join_philosopher_threads(philosophers, data->number_of_philosophers);
 	pthread_join(monitor_thread, NULL);
 	ft_destroy_philosophers(philosophers);
 	return (0);

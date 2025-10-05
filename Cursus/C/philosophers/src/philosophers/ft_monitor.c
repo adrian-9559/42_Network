@@ -17,13 +17,16 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 {
 	long	now;
 
+	/* Lock print first so monitor can prevent other threads from printing once a death is detected */
+	pthread_mutex_lock(&data->print);
 	pthread_mutex_lock(&philos[i].meal_mtx);
 	now = ft_now_ms();
 	if ((now - philos[i].last_meal_ms) > data->time_to_die)
 	{
 		data->stop = 1;
-		ft_print_status(data, philos[i].id, "died");
+		dprintf(1, "%ld %d died\n", now - data->start_time, philos[i].id);
 		pthread_mutex_unlock(&philos[i].meal_mtx);
+		pthread_mutex_unlock(&data->print);
 		return (1);
 	}
 	if (data->number_of_times_each_philosopher_must_eat > 0)
@@ -33,6 +36,7 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 			*all_finished = 0;
 	}
 	pthread_mutex_unlock(&philos[i].meal_mtx);
+	pthread_mutex_unlock(&data->print);
 	return (0);
 }
 

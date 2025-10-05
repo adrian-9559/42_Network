@@ -18,7 +18,7 @@ void	*ft_take_forks_and_eat(t_philosopher *philo)
 	{
 		pthread_mutex_lock(&philo->data->forks[philo->left_fork_idx]);
 		ft_print_status(philo->data, philo->id, "has taken a fork");
-		ft_ms_sleep(philo->data->time_to_die);
+		ft_ms_sleep_check(philo->data, philo->data->time_to_die);
 		pthread_mutex_unlock(&philo->data->forks[philo->left_fork_idx]);
 		return (NULL);
 	}

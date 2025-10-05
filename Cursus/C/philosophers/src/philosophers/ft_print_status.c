@@ -23,6 +23,9 @@ void	ft_print_status(t_data *data, int id, const char *msg)
 		pthread_mutex_unlock(&data->print);
 		return ;
 	}
+	/* if someone is dying, mark stop while holding the print mutex so other threads see it before they try to print */
+	if (ft_strcmp(msg, "died") == 0)
+		data->stop = 1;
 	ft_putstr("", 1, 0);
 	dprintf(1, "%ld %d %s\n", timestamp, id, msg);
 	pthread_mutex_unlock(&data->print);

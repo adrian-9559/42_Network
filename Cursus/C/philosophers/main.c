@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:39 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/29 19:51:43 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:03:57 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv, char **envp)
 	data = ft_construct_data(argc, argv, envp);
 	if (ft_create_thread(&data) != 0)
 		return (1);
-	ret = ft_philosophers(data);
+	ret = ft_philosophers(&data);
 	ft_cleanup_data(&data);
 	return (ret);
 }
