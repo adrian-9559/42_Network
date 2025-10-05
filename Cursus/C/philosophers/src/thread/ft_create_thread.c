@@ -34,22 +34,6 @@ int	ft_create_thread(t_data *data)
 		free(data->forks);
 		return (1);
 	}
-	if (pthread_mutex_init(&data->eat_mtx, NULL) != 0)
-	{
-		ft_error(name_function, (char *[2]){ERR_INIT_MUTEX, NULL});
-		pthread_mutex_destroy(&data->print);
-		free(data->forks);
-		return (1);
-	}
-	if (pthread_cond_init(&data->eat_cond, NULL) != 0)
-	{
-		ft_error(name_function, (char *[2]){"Failed to init cond", NULL});
-		pthread_mutex_destroy(&data->eat_mtx);
-		pthread_mutex_destroy(&data->print);
-		free(data->forks);
-		return (1);
-	}
-	data->eaters_count = 0;
 	data->stop = 0;
 	data->start_time = ft_now_ms();
 	return (0);
