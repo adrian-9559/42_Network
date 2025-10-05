@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/05 23:33:37 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/06 00:04:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ void	ft_print_status(t_data *data, int id, const char *msg)
 	{
 		pthread_mutex_unlock(&data->print);
 		return ;
+	}
+	/* If death_time is set, suppress any non-death prints with timestamp > death_time */
+	if (data->death_time >= 0 && ft_strcmp(msg, "died") != 0)
+	{
+		if (timestamp > data->death_time)
+		{
+			pthread_mutex_unlock(&data->print);
+			return ;
+		}
 	}
 	/* if someone is dying, mark stop while holding the print mutex so other threads see it before they try to print */
 	if (ft_strcmp(msg, "died") == 0)

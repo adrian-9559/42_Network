@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/10/05 23:33:37 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/06 00:04:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,21 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 	now = ft_now_ms();
 	if ((now - philos[i].last_meal_ms) > data->time_to_die)
 	{
-		/* Use centralized print function to mark stop and print atomically */
+		long	timestamp;
+
+		/* Acquire print mutex before releasing meal mutex so no other thread
+		   can print between detection and marking stop. We print directly
+		   here to avoid deadlocking by calling ft_print_status which also
+		   locks the print mutex. */
+		pthread_mutex_lock(&data->print);
 		pthread_mutex_unlock(&philos[i].meal_mtx);
-		ft_print_status(data, philos[i].id, "died");
+		data->stop = 1;
+		/* record death time (relative to start_time) so other threads can
+		   suppress prints that would appear after death */
+		data->death_time = now - data->start_time;
+		timestamp = data->death_time;
+		dprintf(1, "%ld %d died\n", timestamp, philos[i].id);
+		pthread_mutex_unlock(&data->print);
 		return (1);
 	}
 	if (data->number_of_times_each_philosopher_must_eat > 0)

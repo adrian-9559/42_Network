@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:40:15 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/05 17:44:30 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/06 00:04:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	ft_create_thread(t_data *data)
 	}
 	data->stop = 0;
 	data->start_time = ft_now_ms();
+	data->death_time = -1;
 	return (0);
 }

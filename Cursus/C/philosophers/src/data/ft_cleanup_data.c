@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:34:52 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/05 17:45:41 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/05 23:48:53 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	ft_cleanup_data(t_data *data)
 	}
 	pthread_mutex_destroy(&data->print);
 	// eat_cond and eat_mtx removed from t_data; no need to destroy them
-	
+
 	return (0);
 }

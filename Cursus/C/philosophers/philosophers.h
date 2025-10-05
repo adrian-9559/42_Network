@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/05 21:28:30 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/06 00:04:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef struct s_data
 	pthread_cond_t		eat_cond;
 	volatile int		stop;
 	long				start_time;
+	long				death_time;
 }	t_data;
 
 /**
