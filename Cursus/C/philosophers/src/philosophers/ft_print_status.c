@@ -16,8 +16,8 @@ void	ft_print_status(t_data *data, int id, const char *msg)
 {
 	long	timestamp;
 
-	timestamp = ft_now_ms() - data->start_time;
 	pthread_mutex_lock(&data->print);
+	timestamp = ft_now_ms() - data->start_time;
 	if (data->stop && ft_strcmp(msg, "died") != 0)
 	{
 		pthread_mutex_unlock(&data->print);
