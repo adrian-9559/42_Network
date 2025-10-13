@@ -3,3 +3,6 @@
 
 # Compiled object files
 objs/
+
+# Executable
+philo
