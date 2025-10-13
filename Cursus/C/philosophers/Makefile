@@ -6,12 +6,12 @@
 #    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:04:19 by adriescr          #+#    #+#              #
-#    Updated: 2025/09/30 13:04:08 by adriescr         ###   ########.fr        #
+#    Updated: 2025/10/13 15:28:21 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME OF THE PROGRAM
-NAME := philosophers
+NAME := philo
 
 # COMPILER AND FLAGS
 CC := cc
