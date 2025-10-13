@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/05 17:13:51 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/13 16:26:14 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	*ft_philo_routine(void *arg)
 	philo = (t_philosopher *)arg;
 	if (!philo)
 		return (NULL);
+	/*
+	 * stagger to reduce contention on forks:
+	 * - for even ids, sleep half of time_to_eat (original behavior)
+	 * - when number_of_philosophers is odd, also give a tiny delay to odd ids
+	 *   to break symmetry and avoid starvation in some timing combos
+	 */
 	/* stagger to reduce contention on forks for even philosophers; use half of time_to_eat */
 	if (philo->id % 2 == 0)
 		ft_ms_sleep(philo->data->time_to_eat / 2);

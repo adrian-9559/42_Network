@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:58:37 by adriescr          #+#    #+#             */
-/*   Updated: 2025/09/30 13:05:40 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/13 15:51:46 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int	ft_spawn_philosophers(t_philosopher *philosophers)
 		{
 			return (1);
 		}
+		/* small stagger between thread creation to avoid simultaneous contention */
+		if (i % 2 == 1)
+			usleep(1000);
 		i++;
 	}
 	return (0);
