@@ -6,13 +6,13 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:14:50 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/31 12:01:52 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/17 23:59:56 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-/*
+/**
  * ENGLISH: Duplicates a string.
  *
  * SPANISH: Duplica una cadena.
@@ -23,10 +23,10 @@
  * @returns A pointer to the duplicated string, or NULL on failure. /
  *          Un puntero a la cadena duplicada, o NULL en caso de error.
  */
-char	*ft_strdup(const char *s)
+char *ft_strdup(const char *s)
 {
-	char	*dup;
-	size_t	i;
+	char *dup;
+	size_t i;
 
 	if (!s)
 		return (NULL);

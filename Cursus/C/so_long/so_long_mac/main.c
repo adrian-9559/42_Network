@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:18:36 by adriescr          #+#    #+#             */
-/*   Updated: 2025/08/31 12:17:43 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/10/18 00:00:50 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  * - -1 if an error occurs.
  *   -1 si ocurre un error.
  */
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	if (ft_checker_number_args(argc) < 0)
 		return (-1);

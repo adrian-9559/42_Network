@@ -4,5 +4,5 @@
 # Compiled object files
 objs/
 
-# Executable
-philo
+# Tester Programs
+42PhilosophersHelper
