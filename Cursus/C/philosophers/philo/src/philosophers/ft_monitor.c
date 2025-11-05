@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/10/20 17:55:20 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:30:33 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,51 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 
 	pthread_mutex_lock(&philos[i].meal_mtx);
 	now = ft_now_ms();
-	if ((now - philos[i].last_meal_ms) > data->time_to_die)
+	if ((now - philos[i].last_meal_ms) >= data->time_to_die)
 	{
 		pthread_mutex_lock(&data->print);
 		pthread_mutex_unlock(&philos[i].meal_mtx);
 		data->stop = 1;
 		data->death_time = now - data->start_time;
 		timestamp = data->death_time;
-		printf("%ld %d died\n", timestamp, philos[i].id);
+		/* Compose and write the death line using write to avoid stdio flush issues */
+		{
+			char buf[64];
+			int pos = 0;
+			long tmp = timestamp;
+			char numbuf[32];
+			int npos = 0;
+			int id = philos[i].id;
+
+			if (tmp == 0)
+				numbuf[npos++] = '0';
+			while (tmp > 0 && npos < (int)sizeof(numbuf))
+			{
+				numbuf[npos++] = (char)('0' + (tmp % 10));
+				tmp /= 10;
+			}
+			while (npos > 0)
+				buf[pos++] = numbuf[--npos];
+			buf[pos++] = ' ';
+			if (id == 0)
+				buf[pos++] = '0';
+			else
+			{
+				int idtmp = id;
+				char idbuf[8];
+				int ipos = 0;
+				while (idtmp > 0 && ipos < (int)sizeof(idbuf))
+				{
+					idbuf[ipos++] = (char)('0' + (idtmp % 10));
+					idtmp /= 10;
+				}
+				while (ipos > 0)
+					buf[pos++] = idbuf[--ipos];
+			}
+			buf[pos++] = ' ';
+			buf[pos++] = 'd'; buf[pos++] = 'i'; buf[pos++] = 'e'; buf[pos++] = 'd'; buf[pos++] = '\n';
+			(void)write(1, buf, pos);
+		}
 		pthread_mutex_unlock(&data->print);
 		return (1);
 	}
