@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:50:43 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/11/09 16:07:33 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ int				ft_philosophers(t_data *data);
 long			ft_atoi(const char *str);
 size_t			ft_strlen(const char *s);
 int				ft_strcmp(const char *s1, const char *s2);
+int				ft_isdigit(char *str);
 // Print functions
 long			ft_putcolor(int fd, int color);
 long			ft_putchar(char c, int fd);

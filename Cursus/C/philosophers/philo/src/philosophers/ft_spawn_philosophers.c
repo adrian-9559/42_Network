@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:58:37 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:52:48 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/11/09 16:43:50 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,36 @@ int	ft_spawn_philosophers(t_philosopher *philosophers)
 	if (!philosophers)
 		return (1);
 	n = philosophers[0].data->number_of_philosophers;
+	/* initialize last meal for all philosophers first to have consistent baseline */
 	i = 0;
 	while (i < n)
 	{
 		philosophers[i].last_meal_ms = philosophers[i].data->start_time;
+		i++;
+	}
+
+	/* create even indexed philosophers first, then odd indexed.
+	   For large N this reduces immediate fork contention. */
+	i = 0;
+	while (i < n)
+	{
 		if (pthread_create(&philosophers[i].thread, NULL,
 				&ft_philo_routine, &philosophers[i]) != 0)
 			return (1);
-		if (i % 2 == 1)
-			usleep(1000);
-		i++;
+		/* small pause for large sims to let some threads progress */
+		if (n > 100 && (i % 2 == 0))
+			usleep(4000);
+		i += 2;
+	}
+	i = 1;
+	while (i < n)
+	{
+		if (pthread_create(&philosophers[i].thread, NULL,
+				&ft_philo_routine, &philosophers[i]) != 0)
+			return (1);
+		if (n > 100 && (i % 2 == 1))
+			usleep(4000);
+		i += 2;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:04:19 by adriescr          #+#    #+#              #
-#    Updated: 2025/10/13 15:28:21 by adriescr         ###   ########.fr        #
+#    Updated: 2025/11/09 16:14:24 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ UTILS_SRCS := \
 	$(SRC_DIR)/utils/ft_atoi.c \
 	$(SRC_DIR)/utils/ft_strlen.c \
 	$(SRC_DIR)/utils/ft_strcmp.c \
+	$(SRC_DIR)/utils/ft_isdigit.c \
 
 ## ALL sources
 ALL_SRCS := \
