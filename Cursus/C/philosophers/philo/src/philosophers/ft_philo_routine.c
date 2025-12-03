@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:53:32 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:54:40 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	*ft_philo_routine(void *arg)
 	philo = (t_philosopher *)arg;
 	if (!philo)
 		return (NULL);
+	pthread_mutex_lock(&philo->meal_mtx);
+	philo->last_meal_ms = ft_now_ms();
+	pthread_mutex_unlock(&philo->meal_mtx);
+
 	if (philo->id % 2 == 0)
 		ft_ms_sleep(philo->data->time_to_eat / 2);
 	while (!philo->data->stop)

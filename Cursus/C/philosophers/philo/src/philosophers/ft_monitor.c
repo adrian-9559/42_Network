@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/11/05 16:30:33 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:54:36 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 
 	pthread_mutex_lock(&philos[i].meal_mtx);
 	now = ft_now_ms();
-	if ((now - philos[i].last_meal_ms) >= data->time_to_die)
+	if ((now - philos[i].last_meal_ms) > data->time_to_die)
 	{
 		pthread_mutex_lock(&data->print);
 		pthread_mutex_unlock(&philos[i].meal_mtx);
@@ -165,7 +165,7 @@ void	*ft_monitor(void *arg)
 			data->stop = 1;
 			return (NULL);
 		}
-		usleep(100);
+		usleep(500);
 	}
 	return (NULL);
 }
