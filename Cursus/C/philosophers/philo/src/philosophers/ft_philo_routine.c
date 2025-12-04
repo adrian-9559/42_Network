@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/04 17:16:40 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:25:30 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,26 @@ static int	ft_check_philo_finished(t_philosopher *philo)
  */
 static void	ft_sleep_and_think(t_philosopher *philo)
 {
+	long	think_time;
+
 	ft_print_status(philo->data, philo->id, "is sleeping");
 	ft_ms_sleep_check(philo->data, philo->data->time_to_sleep);
 	ft_print_status(philo->data, philo->id, "is thinking");
-	ft_ms_sleep_check(philo->data, 1);
+
+	/* Calculate adaptive thinking time to reduce contention.
+	   For odd philo counts, stagger by eating time to prevent deadlock. */
+	if (philo->data->number_of_philosophers % 2 == 1)
+	{
+		think_time = (philo->data->time_to_eat * 2)
+			- philo->data->time_to_sleep;
+		if (think_time < 0)
+			think_time = 1;
+		if (think_time > 600)
+			think_time = 600;
+		ft_ms_sleep_check(philo->data, think_time);
+	}
+	else
+		ft_ms_sleep_check(philo->data, 1);
 }
 
 /**
@@ -84,19 +100,10 @@ void	*ft_philo_routine(void *arg)
 	philo->last_meal_ms = ft_now_ms();
 	pthread_mutex_unlock(&philo->meal_mtx);
 
-	/* Stagger philosophers to reduce initial fork contention.
-	   For large N use minimal delays to avoid starvation while still
-	   preventing all philosophers from grabbing forks simultaneously. */
-	if (philo->data->number_of_philosophers > 100)
-	{
-		if (philo->id % 2 == 0)
-			usleep(1000);
-	}
-	else
-	{
-		if (philo->id % 2 == 0)
-			ft_ms_sleep(philo->data->time_to_eat / 2);
-	}
+	/* Stagger even-numbered philosophers to reduce initial fork contention.
+	   Keep delay small to avoid starvation in tight timing scenarios. */
+	if (philo->id % 2 == 0)
+		usleep(1000);
 	while (!philo->data->stop)
 	{
 		ft_take_forks_and_eat(philo);
