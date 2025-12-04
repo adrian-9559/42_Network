@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/11/28 16:54:40 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:16:40 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,19 @@ void	*ft_philo_routine(void *arg)
 	philo->last_meal_ms = ft_now_ms();
 	pthread_mutex_unlock(&philo->meal_mtx);
 
-	if (philo->id % 2 == 0)
-		ft_ms_sleep(philo->data->time_to_eat / 2);
+	/* Stagger philosophers to reduce initial fork contention.
+	   For large N use minimal delays to avoid starvation while still
+	   preventing all philosophers from grabbing forks simultaneously. */
+	if (philo->data->number_of_philosophers > 100)
+	{
+		if (philo->id % 2 == 0)
+			usleep(1000);
+	}
+	else
+	{
+		if (philo->id % 2 == 0)
+			ft_ms_sleep(philo->data->time_to_eat / 2);
+	}
 	while (!philo->data->stop)
 	{
 		ft_take_forks_and_eat(philo);
