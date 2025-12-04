@@ -1,8 +1,9 @@
 # Program complied
 ./philosophers
+./philo
 
 # Tester directory
-tester/
+./tester/
 
 # Compiled object files
 objs/
