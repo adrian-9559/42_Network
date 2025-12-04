@@ -1,6 +1,9 @@
 # Program complied
 ./philosophers
 
+# Tester directory
+tester/
+
 # Compiled object files
 objs/
 
