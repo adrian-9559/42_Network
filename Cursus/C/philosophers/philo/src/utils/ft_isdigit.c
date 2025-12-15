@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:06:03 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/15 19:12:20 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/16 00:22:54 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  */
 int	ft_isdigit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

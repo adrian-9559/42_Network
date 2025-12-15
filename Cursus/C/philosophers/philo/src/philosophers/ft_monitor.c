@@ -6,53 +6,51 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/12/15 20:59:22 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/16 00:24:10 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philosophers.h"
 
-/**
- * ENGLISH: Checks the state of philosopher i: detects if they have died of
- * starvation or updates the all-finished indicator. Locks philos[i].meal_mtx
- * while reading/updating last_meal_ms and meals_eaten.
- *
- * If a death is detected:
- *   - sets data->stop = 1,
- *   - computes data->death_time as (now - data->start_time),
- *   - prints "<timestamp> <id> died" while protecting the print with
- * 		data->print,
- *   - returns 1.
- *
- * If a meals-per-philosopher requirement exists and the philosopher hasn't
- * reached it, sets *all_finished = 0. Unlocks the mutex before returning.
- *
- * SPANISH: Comprueba el estado del filósofo i: detecta si ha muerto por
- * inanición o actualiza el indicador de que todos han terminado. Bloquea
- * philos[i].meal_mtx mientras lee/actualiza last_meal_ms y meals_eaten.
- *
- * Si se detecta una muerte:
- *   - establece data->stop = 1,
- *   - calcula data->death_time como (now - data->start_time),
- *   - imprime "<timestamp> <id> died" protegiendo la impresión con data->print,
- *   - devuelve 1.
- *
- * Si existe un requisito de comidas por filósofo y éste no lo ha cumplido,
- * marca *all_finished = 0. Desbloquea el mutex antes de salir.
- *
- * @param data Pointer to the global data structure. / El puntero a la estructura
- *             de datos global.
- * @param philos Pointer to the array of philosophers. / El puntero al arreglo de
- *               filósofos.
- * @param i Index of the philosopher to check. / Índice del filósofo a comprobar.
- * @param all_finished Pointer to a flag set to 0 if any philosopher hasn't
- *                     completed the required meals. / Puntero a una bandera que
- *                     se pone a 0 si algún filósofo no ha completado las comidas
- *                     requeridas.
- *
- * @returns 1 if the philosopher died, 0 otherwise. / 1 si el filósofo murió,
- * 			0 en caso contrario.
- */
+static int	write_number(char *buf, int pos, long val)
+{
+	char	tmp[32];
+	int		npos;
+
+	npos = 0;
+	if (val == 0)
+		tmp[npos++] = '0';
+	while (val > 0 && npos < (int) sizeof(tmp))
+	{
+		tmp[npos++] = (char)('0' + (val % 10));
+		val /= 10;
+	}
+	while (npos > 0)
+		buf[pos++] = tmp[--npos];
+	return (pos);
+}
+
+static int	append_str(char *buf, int pos, const char *s)
+{
+	while (*s)
+		buf[pos++] = *s++;
+	return (pos);
+}
+
+static void	print_death(long timestamp, int id)
+{
+	char	buf[64];
+	int		pos;
+
+	pos = 0;
+	pos = write_number(buf, pos, timestamp);
+	buf[pos++] = ' ';
+	pos = write_number(buf, pos, id);
+	buf[pos++] = ' ';
+	pos = append_str(buf, pos, "died\n");
+	(void)write(1, buf, pos);
+}
+
 static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 	int *all_finished)
 {
@@ -68,41 +66,7 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 		data->stop = 1;
 		data->death_time = now - data->start_time;
 		timestamp = data->death_time;
-			char buf[64];
-			int pos = 0;
-			long tmp = timestamp;
-			char numbuf[32];
-			int npos = 0;
-			int id = philos[i].id;
-
-			if (tmp == 0)
-				numbuf[npos++] = '0';
-			while (tmp > 0 && npos < (int)sizeof(numbuf))
-			{
-				numbuf[npos++] = (char)('0' + (tmp % 10));
-				tmp /= 10;
-			}
-			while (npos > 0)
-				buf[pos++] = numbuf[--npos];
-			buf[pos++] = ' ';
-			if (id == 0)
-				buf[pos++] = '0';
-			else
-			{
-				int idtmp = id;
-				char idbuf[8];
-				int ipos = 0;
-				while (idtmp > 0 && ipos < (int)sizeof(idbuf))
-				{
-					idbuf[ipos++] = (char)('0' + (idtmp % 10));
-					idtmp /= 10;
-				}
-				while (ipos > 0)
-					buf[pos++] = idbuf[--ipos];
-			}
-			buf[pos++] = ' ';
-			buf[pos++] = 'd'; buf[pos++] = 'i'; buf[pos++] = 'e'; buf[pos++] = 'd'; buf[pos++] = '\n';
-			(void)write(1, buf, pos);
+		print_death(timestamp, philos[i].id);
 		pthread_mutex_unlock(&data->print);
 		return (1);
 	}
