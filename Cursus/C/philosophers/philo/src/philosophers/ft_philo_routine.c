@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/04 18:25:30 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/15 19:11:56 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ static void	ft_sleep_and_think(t_philosopher *philo)
 	ft_print_status(philo->data, philo->id, "is sleeping");
 	ft_ms_sleep_check(philo->data, philo->data->time_to_sleep);
 	ft_print_status(philo->data, philo->id, "is thinking");
-
-	/* Calculate adaptive thinking time to reduce contention.
-	   For odd philo counts, stagger by eating time to prevent deadlock. */
 	if (philo->data->number_of_philosophers % 2 == 1)
 	{
 		think_time = (philo->data->time_to_eat * 2)
@@ -99,9 +96,6 @@ void	*ft_philo_routine(void *arg)
 	pthread_mutex_lock(&philo->meal_mtx);
 	philo->last_meal_ms = ft_now_ms();
 	pthread_mutex_unlock(&philo->meal_mtx);
-
-	/* Stagger even-numbered philosophers to reduce initial fork contention.
-	   Keep delay small to avoid starvation in tight timing scenarios. */
 	if (philo->id % 2 == 0)
 		usleep(1000);
 	while (!philo->data->stop)

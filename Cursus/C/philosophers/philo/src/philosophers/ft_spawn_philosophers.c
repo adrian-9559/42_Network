@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:58:37 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/04 17:16:54 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/15 19:11:26 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,13 @@ int	ft_spawn_philosophers(t_philosopher *philosophers)
 	if (!philosophers)
 		return (1);
 	n = philosophers[0].data->number_of_philosophers;
-	/* set the global start_time now (at actual spawn start) so timing is based
-	   on when threads are created rather than when mutexes were initialized */
 	philosophers[0].data->start_time = ft_now_ms();
-	/* initialize last meal for all philosophers first to have consistent baseline */
 	i = 0;
 	while (i < n)
 	{
 		philosophers[i].last_meal_ms = philosophers[i].data->start_time;
 		i++;
 	}
-	/* create all philosopher threads with minimal stagger to reduce initial contention */
 	i = 0;
 	while (i < n)
 	{

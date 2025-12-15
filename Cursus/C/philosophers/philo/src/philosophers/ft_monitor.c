@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/11/28 16:54:36 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/15 20:59:22 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 		data->stop = 1;
 		data->death_time = now - data->start_time;
 		timestamp = data->death_time;
-		/* Compose and write the death line using write to avoid stdio flush issues */
-		{
 			char buf[64];
 			int pos = 0;
 			long tmp = timestamp;
@@ -105,7 +103,6 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 			buf[pos++] = ' ';
 			buf[pos++] = 'd'; buf[pos++] = 'i'; buf[pos++] = 'e'; buf[pos++] = 'd'; buf[pos++] = '\n';
 			(void)write(1, buf, pos);
-		}
 		pthread_mutex_unlock(&data->print);
 		return (1);
 	}
