@@ -1,0 +1,6 @@
+[submodule "42_Madrid/Cursus/C"]
+	path = 42_Madrid/Cursus/C
+	url = https://github.com/adrigar25/42-minishell.git
+[submodule "Cursus/C/minishell"]
+	path = Cursus/C/minishell
+	url = https://github.com/adrigar25/42-minishell.git
