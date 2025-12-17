@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/12/17 15:08:24 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:57:24 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ static void	print_death(long timestamp, int id)
  *             Puntero a la estructura de datos compartida.
  * @param philos Pointer to the array of philosophers. /
  *               Puntero al array de filósofos.
- * @param i The index of the philosopher to check. / El índice del filósofo a comprobar.
+ * @param i The index of the philosopher to check. / El índice del filósofo a
+ * 			comprobar.
  * @param all_finished Pointer to an integer that will be set to 0 if any
  *                     philosopher has not finished eating. /
  *                     Puntero a un entero que se establecerá en 0 si algún
