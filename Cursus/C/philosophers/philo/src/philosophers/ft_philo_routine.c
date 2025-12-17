@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:06:45 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/17 15:54:12 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:58:22 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static void	ft_sleep_and_think(t_philosopher *philo)
 {
 	long	think_time;
 
-	ft_print_status(philo->data, "is sleeping");
+	ft_print_status(philo->data, philo->id, "is sleeping");
 	ft_ms_sleep_check(philo->data, philo->data->time_to_sleep);
-	ft_print_status(philo->data, "is thinking");
+	ft_print_status(philo->data, philo->id, "is thinking");
 	if (philo->data->number_of_philosophers % 2 == 1)
 	{
 		think_time = (philo->data->time_to_eat * 2)

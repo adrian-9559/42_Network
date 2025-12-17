@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:11:42 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/17 15:55:36 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:59:03 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	ft_take_forks(t_philosopher *p)
 		second = p->left_fork_idx;
 	}
 	pthread_mutex_lock(&p->data->forks[first]);
-	ft_print_status(p->data, "has taken a fork");
+	ft_print_status(p->data, p->id, "has taken a fork");
 	pthread_mutex_lock(&p->data->forks[second]);
-	ft_print_status(p->data, "has taken a fork");
+	ft_print_status(p->data, p->id, "has taken a fork");
 	pthread_mutex_lock(&p->meal_mtx);
 	p->last_meal_ms = ft_now_ms();
 	pthread_mutex_unlock(&p->meal_mtx);

@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/17 15:55:01 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:58:01 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ long			ft_timeval_to_ms(struct timeval *tv);
 t_philosopher	*ft_create_philosophers(t_data *data);
 int				ft_destroy_philosophers(t_philosopher *philosophers);
 int				ft_spawn_philosophers(t_philosopher *philosophers);
-void			ft_print_status(t_data *data, const char *msg);
+void			ft_print_status(t_data *data, int id, const char *msg);
 void			*ft_philo_routine(void *arg);
 void			*ft_take_forks_and_eat(t_philosopher *philo);
 int				ft_start_eating(t_philosopher *philo);

@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/17 15:53:39 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 18:01:22 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  *             estructura de datos global.
  * @param msg The status message to print. / El mensaje de estado a imprimir.
  */
-void	ft_print_status(t_data *data, const char *msg)
+void	ft_print_status(t_data *data, int id, const char *msg)
 {
 	long	timestamp;
 
@@ -43,5 +43,6 @@ void	ft_print_status(t_data *data, const char *msg)
 	}
 	if (ft_strcmp(msg, "died") == 0)
 		data->stop = 1;
+	printf("%ld %d %s\n", timestamp, id, msg);
 	pthread_mutex_unlock(&data->print);
 }
