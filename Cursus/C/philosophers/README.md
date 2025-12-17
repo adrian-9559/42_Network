@@ -106,52 +106,95 @@ La complejidad reside en la coordinación precisa: cada filósofo necesita dos t
 
 ### 📁 Estructura de archivos
 
+Ejemplo de layout detallado del proyecto (puedes adaptarlo según tu implementación):
+
 ```
 philosophers/
-├── Makefile
+├── .gitignore
 ├── README.md
-├── include/
-│   └── philosophers.h
-└── src/
-    ├── main.c
-    ├── init.c
-    ├── simulation.c
-    ├── actions.c
-    ├── utils.c
-    └── cleanup.c
+└── philo
+	│── objs
+	│	└── *.o
+	├── src
+	│	│── data
+	│	│	│── ft_cleanup_data.c
+	│	│	└── ft_construct_data.c
+	│	│── forks
+	│	│	│── ft_put_forks.c
+	│	│	└── ft_take_forks.c
+	│	│── mutex
+	│	│	└── ft_init_mutexes.c
+	│	│── philosophers
+	│	│	│── ft_create_philosophers.c
+	│	│	│── ft_destroy_philosophers.c
+	│	│	│── ft_monitor.c
+	│	│	│── ft_philo_routine.c
+	│	│	│── ft_print_status.c
+	│	│	│── ft_spawn_philosophers.c
+	│	│	│── ft_start_eating.c
+	│	│	└── ft_take_forks_and_eat.c
+	│	│── print
+	│	│	│── ft_error.c
+	│	│	│── ft_putchar.c
+	│	│	│── ft_putstr.c
+	│	│	└── ft_putcolor.c
+	│	│── threads
+	│	│	└── ft_create_threads.c
+	│	│── time
+	│	│	│── ft_ms_sleep.c
+	│	│	│── ft_now_ms.c
+	│	│	└── ft_timeval_to_ms.c
+	│	│── utils
+	│	│	│── ft_atoi.c
+	│	│	│── ft_isdigit.c
+	│	│	│── ft_strcmp.c
+	│	│	└── ft_strlen.c
+	│	└── philosophers.c		# main file | archivo principal
+	├── Makefile
+	│── main.c				 	# point of entry program | punto de entrada del programa
+	│── philosophers.h			# headers and prototypes | cabeceras y prototipos
+	└── str_error.h				# error messages | mensajes de error
 ```
 
-### 🧱 Componentes principales
+#### 🧱 Componentes principales
 
-#### 🏛️ Estructuras de datos
+##### 🏛️ Estructuras de datos
+
+En el proyecto las estructuras reales están definidas en `philosophers.h`. A continuación se muestran las definiciones exactas usadas en el código (tipos y comentarios resumidos):
 
 ```c
+typedef struct s_data
+{
+    long                number_of_philosophers;
+    long                time_to_die;
+    long                time_to_eat;
+    long                time_to_sleep;
+    long                number_of_times_each_philosopher_must_eat;
+    pthread_mutex_t     *forks; /* array de mutex para cada tenedor */
+    pthread_mutex_t     print;  /* mutex para imprimir */
+    int                 eaters_count; /* contador de comensales comiendo */
+    pthread_mutex_t     eat_mtx;
+    pthread_cond_t      eat_cond;
+    int                 stop; /* flag para terminar la simulación */
+    long                start_time; /* ms desde epoch al inicio */
+    long                death_time; /* ms de muerte detectada */
+}   t_data;
+
 typedef struct s_philosopher
 {
-    int             id;
-    int             meals_eaten;
-    long            last_meal_time;
-    pthread_t       thread;
-    pthread_mutex_t *left_fork;
-    pthread_mutex_t *right_fork;
-    t_simulation    *sim;
+    int                 id;
+    pthread_t           thread;
+    int                 meals_eaten;
+    long                last_meal_ms;
+    int                 left_fork_idx;
+    int                 right_fork_idx;
+    pthread_mutex_t     meal_mtx;
+    int                 finished; /* si alcanzó el número de comidas */
+    struct s_data       *data; /* puntero a la estructura compartida */
 }   t_philosopher;
-
-typedef struct s_simulation
-{
-    int             num_philosophers;
-    int             time_to_die;
-    int             time_to_eat;
-    int             time_to_sleep;
-    int             meals_required;
-    long            start_time;
-    int             simulation_end;
-    pthread_mutex_t print_mutex;
-    pthread_mutex_t death_mutex;
-    pthread_mutex_t *forks;
-    t_philosopher   *philosophers;
-}   t_simulation;
 ```
+
+Estas definiciones coinciden con los prototipos y la implementación del proyecto y facilitan entender la arquitectura y responsabilidades de cada componente.
 
 #### 🔄 Flujo de ejecución
 
@@ -189,12 +232,6 @@ typedef struct s_simulation
 ```
 
 ## 🐛 Debugging y herramientas
-
-### 🔧 Compilación con flags de debug
-
-```bash
-make debug  # Compila con -g -fsanitize=thread
-```
 
 ### 🕵️ Herramientas útiles
 
