@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:39 by adriescr          #+#    #+#             */
-/*   Updated: 2025/11/09 16:13:53 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:55:23 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	ft_checker_args(int argc, char **argv)
 	return (0);
 }
 
-int	main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	int		ret;
@@ -63,7 +63,7 @@ int	main(int argc, char **argv, char **envp)
 		ft_error(NAME_MAIN_C, (char *[2]){ERR_INVALID_ARG, NULL});
 		return (1);
 	}
-	data = ft_construct_data(argc, argv, envp);
+	data = ft_construct_data(argc, argv);
 	if (ft_create_thread(&data) != 0)
 		return (1);
 	ret = ft_philosophers(&data);

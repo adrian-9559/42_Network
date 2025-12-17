@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/15 18:57:25 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:53:39 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@
  *
  * @param data Pointer to the global data structure. / El puntero a la
  *             estructura de datos global.
- * @param id The ID of the philosopher. / El ID del filósofo.
  * @param msg The status message to print. / El mensaje de estado a imprimir.
  */
-void	ft_print_status(t_data *data, int id, const char *msg)
+void	ft_print_status(t_data *data, const char *msg)
 {
 	long	timestamp;
 

@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:13:25 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:52:13 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:54:29 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_start_eating(t_philosopher *philo)
 	pthread_mutex_unlock(&philo->meal_mtx);
 	if (philo->data->stop)
 		return (0);
-	ft_print_status(philo->data, philo->id, "is eating");
+	ft_print_status(philo->data, "is eating");
 	ft_ms_sleep_check(philo->data, philo->data->time_to_eat);
 	return (0);
 }

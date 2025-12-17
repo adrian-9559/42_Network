@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:38:09 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:57:19 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:54:47 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  * @returns A t_data structure populated with the simulation parameters. /
  *          Una estructura t_data poblada con los parámetros de la simulación.
  */
-t_data	ft_construct_data(int argc, char **argv, char **envp)
+t_data	ft_construct_data(int argc, char **argv)
 {
 	t_data	data;
 

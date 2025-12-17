@@ -6,7 +6,7 @@
 #    By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:04:19 by adriescr          #+#    #+#              #
-#    Updated: 2025/11/09 16:14:24 by adriescr         ###   ########.fr        #
+#    Updated: 2025/12/17 15:53:24 by adriescr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := philo
 
 # COMPILER AND FLAGS
 CC := cc
-CFLAGS :=
+CFLAGS := -Wall -Wextra -Werror
 
 # DIRECTORIES
 SRC_DIR := src
