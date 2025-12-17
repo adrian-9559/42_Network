@@ -6,7 +6,7 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:03:57 by adriescr          #+#    #+#             */
-/*   Updated: 2025/12/15 19:12:31 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:20:11 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@
  * @param time_to_die:
  * 		The time (in milliseconds) a philosopher can go without eating
  * 		before dying. |
- * 		El tiempo (en milisegundos) que un filósofo puede pasar sin
- * 		comer antes de morir.
+ * 		El tiempo (en milisegundos) que un filósofo puede pasar sin comer
+ * 		antes de morir.
  *
  * @param time_to_eat:
  * 		The time (in milliseconds) it takes for a philosopher to eat. |
@@ -75,9 +75,46 @@
  * 		The time (in milliseconds) a philosopher spends sleeping. |
  * 		El tiempo (en milisegundos) que un filósofo pasa durmiendo.
  *
- * @param number_of_times_each_philosopher_must_eat [OPTIONAL]:
- * 		Optional parameter specifying how many times each philosopher must eat. |
- * 		Parámetro opcional que especifica cuántas veces debe comer cada filósofo.
+ * @param number_of_times_each_philosopher_must_eat:
+ * 		Optional parameter specifying how many times each philosopher must eat.
+ * 		If not specified, philosophers will eat indefinitely. |
+ * 		Parámetro opcional que especifica cuántas veces debe comer cada
+ * 		filósofo.
+ * 		Si no se especifica, los filósofos comerán indefinidamente.
+ *
+ * @param forks:
+ * 		An array of mutexes representing the forks. |
+ * 		Un array de mutexes que representan los tenedores.
+ *
+ * @param print:
+ * 		A mutex to protect printing to the console. |
+ * 		Un mutex para proteger la impresión en la consola.
+ *
+ * @param eaters_count:
+ * 		Count of philosophers currently eating. |
+ * 		Contador de filósofos que están comiendo actualmente.
+ *
+ * @param eat_mtx:
+ * 		A mutex to protect access to the eaters_count variable. |
+ * 		Un mutex para proteger el acceso a la variable eaters_count.
+ *
+ * @param eat_cond:
+ * 		A condition variable to signal changes in eaters_count. |
+ * 		Una variable de condición para señalar cambios en eaters_count.
+ *
+ * @param stop:
+ * 		Flag to indicate when the simulation should stop. |
+ * 		Bandera para indicar cuándo debe detenerse la simulación.
+ *
+ * @param start_time:
+ * 		Timestamp marking the start of the simulation (in milliseconds). |
+ * 		Marca de tiempo que marca el inicio de la simulación (en milisegundos).
+ *
+ * @param death_time:
+ * 		Timestamp marking the time of death of a philosopher (in milliseconds).
+ * 		|
+ * 		Marca de tiempo que marca el momento de la muerte de un filósofo
+ * 		(en milisegundos).
  */
 typedef struct s_data
 {
@@ -120,25 +157,29 @@ typedef struct s_data
  * 		El número de comidas que el filósofo ha comido.
  *
  * @param last_meal_ms:
- * 		The timestamp of the last meal the philosopher had (in milliseconds). |
- * 		La marca de tiempo de la última comida que tuvo el filósofo
+ * 		Timestamp of the last meal the philosopher had (in milliseconds). |
+ * 		Marca de tiempo de la última comida que tuvo el filósofo
  * 		(en milisegundos).
  *
  * @param left_fork_idx:
- * 		The index of the fork to the left of the philosopher. |
- * 		El índice del tenedor a la izquierda del filósofo.
+ * 		Index of the left fork for the philosopher. |
+ * 		Índice del tenedor izquierdo para el filósofo.
  *
  * @param right_fork_idx:
- * 		The index of the fork to the right of the philosopher. |
- * 		El índice del tenedor a la derecha del filósofo.
+ * 		Index of the right fork for the philosopher. |
+ * 		Índice del tenedor derecho para el filósofo.
  *
  * @param meal_mtx:
  * 		A mutex to protect access to the philosopher's meal data. |
  * 		Un mutex para proteger el acceso a los datos de comida del filósofo.
  *
  * @param finished:
- * 		A flag indicating whether the philosopher has finished eating. |
- * 		Una bandera que indica si el filósofo ha terminado de comer.
+ * 		Flag indicating whether the philosopher has finished eating. |
+ * 		Bandera que indica si el filósofo ha terminado de comer.
+ *
+ * @param data:
+ * 		Pointer to the shared data structure. |
+ * 		Puntero a la estructura de datos compartida.
  */
 typedef struct s_philosopher
 {

@@ -6,12 +6,25 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 20:45:00 by automated         #+#    #+#             */
-/*   Updated: 2025/12/16 00:24:10 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:08:24 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philosophers.h"
 
+/**
+ * ENGLISH: Writes a number into a buffer starting at the given position.
+ *
+ * SPANISH: Escribe un número en un buffer comenzando en la posición dada.
+ *
+ * @param buf The buffer to write into. / El buffer donde escribir.
+ * @param pos The position in the buffer to start writing. /
+ *            La posición en el buffer para comenzar a escribir.
+ * @param val The number to write. / El número a escribir.
+ *
+ * @returns The new position in the buffer after writing the number. /
+ *          La nueva posición en el buffer después de escribir el número.
+ */
 static int	write_number(char *buf, int pos, long val)
 {
 	char	tmp[32];
@@ -30,6 +43,19 @@ static int	write_number(char *buf, int pos, long val)
 	return (pos);
 }
 
+/**
+ * ENGLISH: Appends a string to a buffer starting at the given position.
+ *
+ * SPANISH: Añade una cadena a un buffer comenzando en la posición dada.
+ *
+ * @param buf The buffer to write into. / El buffer donde escribir.
+ * @param pos The position in the buffer to start writing. /
+ *            La posición en el buffer para comenzar a escribir.
+ * @param s The string to append. / La cadena a añadir.
+ *
+ * @returns The new position in the buffer after appending the string. /
+ *          La nueva posición en el buffer después de añadir la cadena.
+ */
 static int	append_str(char *buf, int pos, const char *s)
 {
 	while (*s)
@@ -37,6 +63,16 @@ static int	append_str(char *buf, int pos, const char *s)
 	return (pos);
 }
 
+/**
+ * ENGLISH: Prints the death message for a philosopher.
+ *
+ * SPANISH: Imprime el mensaje de muerte de un filósofo.
+ *
+ * @param timestamp The timestamp of the death. / El timestamp de la muerte.
+ * @param id The ID of the philosopher who died. / El ID del filósofo que murió.
+ *
+ * @returns void. / void.
+ */
 static void	print_death(long timestamp, int id)
 {
 	char	buf[64];
@@ -48,9 +84,29 @@ static void	print_death(long timestamp, int id)
 	pos = write_number(buf, pos, id);
 	buf[pos++] = ' ';
 	pos = append_str(buf, pos, "died\n");
-	(void)write(1, buf, pos);
+	write(1, buf, pos);
 }
 
+/**
+ * ENGLISH: Checks the status of a philosopher to see if they have died or
+ * completed their meals.
+ *
+ * SPANISH: Comprueba el estado de un filósofo para ver si ha muerto o
+ * ha completado sus comidas.
+ *
+ * @param data Pointer to the shared data structure. /
+ *             Puntero a la estructura de datos compartida.
+ * @param philos Pointer to the array of philosophers. /
+ *               Puntero al array de filósofos.
+ * @param i The index of the philosopher to check. / El índice del filósofo a comprobar.
+ * @param all_finished Pointer to an integer that will be set to 0 if any
+ *                     philosopher has not finished eating. /
+ *                     Puntero a un entero que se establecerá en 0 si algún
+ *                     filósofo no ha terminado de comer.
+ *
+ * @returns 1 if the philosopher has died, 0 otherwise. /
+ *          1 si el filósofo ha muerto, 0 en caso contrario.
+ */
 static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 	int *all_finished)
 {
@@ -81,25 +137,17 @@ static int	ft_check_philo(t_data *data, t_philosopher *philos, int i,
 }
 
 /**
- * ENGLISH: Monitor function that continuously checks the state of all
- * philosophers to detect deaths or completion of required meals.
+ * ENGLISH: Monitor thread function that checks the status of all philosophers.
+ * 			Stops the simulation if a philosopher dies or all have finished
+ * 			eating.
  *
- * The function loops until data->stop is set. In each iteration, it checks
- * each philosopher using ft_check_philo(). If a philosopher dies, it exits
- * immediately. If all philosophers have completed the required meals, it sets
- * data->stop and exits.
+ * SPANISH: Función del hilo monitor que comprueba el estado de todos los
+ * 			filósofos.
+ * 			Detiene la simulación si un filósofo muere o todos han terminado
+ * 			de comer.
  *
- * SPANISH: Función de monitor que comprueba continuamente el estado de todos
- * los filósofos para detectar muertes o la finalización de las comidas
- * requeridas.
- *
- * La función se ejecuta en un bucle hasta que se establece data->stop. En
- * cada iteración, comprueba cada filósofo usando ft_check_philo(). Si un
- * filósofo muere, sale inmediatamente. Si todos los filósofos han completado
- * las comidas requeridas, establece data->stop y sale.
- *
- * @param arg Pointer to the first philosopher in the array. /
- *            Puntero al primer filósofo del array.
+ * @param arg Pointer to the array of philosophers. /
+ *            Puntero al array de filósofos.
  *
  * @returns NULL. / NULL.
  */

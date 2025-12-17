@@ -6,18 +6,16 @@
 /*   By: adriescr <adriescr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:44:30 by adriescr          #+#    #+#             */
-/*   Updated: 2025/10/20 17:58:40 by adriescr         ###   ########.fr       */
+/*   Updated: 2025/12/17 15:11:25 by adriescr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philosophers.h"
 
 /**
- * ENGLISH:
- *   Convert a timeval structure to milliseconds.
+ * ENGLISH: Convert a timeval structure to milliseconds.
  *
- * SPANISH:
- *   Convierte una estructura timeval a milisegundos.
+ * SPANISH: Convierte una estructura timeval a milisegundos.
  *
  * @param tv Pointer to the timeval structure to convert.
  * @return Time in milliseconds as a long.
